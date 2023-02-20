@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="/Users/tamsinharvey/Documents/College/4th Year/FYP/App/public/css/LoginStyle.css" rel="stylesheet">
+</head>
+<body>
+    <header class="masthead text-center text-white">
+        <div class="masthead-content">
+          <div class="container">
+             <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+              <div class="container">
+                <a class="navbar-brand" href="#">RateIT</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/Users/tamsinharvey/Documents/College/4th Year/FYP/App/public/index.html"> Home</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+			</div>
+			</div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+                <h2 class="masthead-heading mb-0"> Sign In </h2>
+              <h5 class="card-title text-center"></h5>
+
+              <div class="container">
+                <div class="form-label-group">
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                  <label for="inputEmail">Email address</label>
+                </div>
+
+                <div class="form-label-group">
+				  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <label for="inputPassword">Password</label>
+			   </div>
+                <button onclick="login()" class="btn btn-lg btn-primary btn-block text-uppercase"  >Sign in</button>
+				</div>
+
+                <hr class="my-4">
+                <h3> Don't have an account?</h3>
+               <a href="/register.html"> Create an account </a>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="/__/firebase/8.4.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="/__/firebase/8.4.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="/__/firebase/8.4.2/firebase-auth.js"></script>
+  <script src="/__/firebase/8.4.2/firebase-firestore.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
