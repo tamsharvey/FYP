@@ -1,10 +1,26 @@
 function register()
 {
-    let email = document.getElementById('inputEmail').value
-    let password = document.getElementById('inputPassword').value
+    // Get the user's input from the registration form
+    const email = document.getElementById("inputEmail").value;
+    const password1 = document.getElementById("inputPassword1").value;
+    const password2 = document.getElementById("inputPassword2").value;
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
+    // Validate the user's input
+    if (!email || !password1 || !password2)
+    {
+        alert("Please fill in all the fields.");
+        return;
+    }
+
+    if (password1 !== password2)
+    {
+        alert("Passwords must match.");
+        return;
+    }
+
+    firebase.auth().createUserWithEmailAndPassword(email, password1)
+        .then((userCredential) =>
+        {
             // Signed in
             var user = userCredential.user;
            document.cookie = "accessToken=" + user.za;
