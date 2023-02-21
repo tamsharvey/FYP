@@ -12,6 +12,7 @@
     }
   ],
   "hosting": {
+    "site": "finalyearproject-837f4",
     "public": "public",
     "ignore": [
       "firebase.json",
