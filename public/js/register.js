@@ -18,14 +18,20 @@ function register()
         return;
     }
 
+    if (password1.length < 6 || password2.length < 6)
+    {
+        alert("Password must be at least 6 characters.");
+        return;
+    }
+
     firebase.auth().createUserWithEmailAndPassword(email, password1)
         .then((userCredential) =>
         {
             // Signed in
             var user = userCredential.user;
-           document.cookie = "accessToken=" + user.za;
+            document.cookie = "accessToken=" + user.za;
             document.cookie = "uid=" + user.uid;
-	        window.location.href = "/uploading.html"
+	        window.location.replace("./MovieSearch.html");
             // ...
         })
         .catch((error) => {
