@@ -11,13 +11,13 @@
     padding-top: 50px;
     position: relative;
     overflow: hidden;
-    padding-bottom:350px;
-    background: #efdce0;
+    padding-bottom:415px;
+    background: linear-gradient(to bottom, #4169e1 18%, #5174de 35%, #efdce0 80%, #efdce0 100%);
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: scroll;
     background-size: cover;
   }
+
 
   .card-signin {
     border: 0;
