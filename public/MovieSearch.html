@@ -1,10 +1,467 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Movie Search</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="colorlib.com">
+    <link href="css/MovieSearch.css" rel="stylesheet">
+    <meta name="robots" content="noindex, follow">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"
+            nonce="f30d252b-c13c-49d1-9e03-5cae290255ca"></script>
+    <script defer="" referrerpolicy="origin"
+            src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ4JTIyJTNBMC45NDUyNDc2ODU1MTA5MjQ0JTJDJTIydyUyMiUzQTE5MjAlMkMlMjJoJTIyJTNBMTA4MCUyQyUyMmolMjIlM0E5NzYlMkMlMjJlJTIyJTNBMTY3OSUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRmV0YyUyRnNlYXJjaGYlMkZjb2xvcmxpYi1zZWFyY2gtMTAlMkYlMjIlMkMlMjJyJTIyJTNBJTIyJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQTAlMkMlMjJxJTIyJTNBJTVCJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIwJTIyJTJDJTIyY29uZmlnJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIxJTIyJTJDJTIyVUEtMjM1ODE1NjgtMTMlMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlNUQlN0Q="></script>
+    <script nonce="f30d252b-c13c-49d1-9e03-5cae290255ca">(function (w, d) {
+        !function (f, g, h, i) {
+            f[h] = f[h] || {};
+            f[h].executed = [];
+            f.zaraz = {deferred: [], listeners: []};
+            f.zaraz.q = [];
+            f.zaraz._f = function (j) {
+                return function () {
+                    var k = Array.prototype.slice.call(arguments);
+                    f.zaraz.q.push({m: j, a: k})
+                }
+            };
+            for (const l of ["track", "set", "debug"]) f.zaraz[l] = f.zaraz._f(l);
+            f.zaraz.init = () => {
+                var m = g.getElementsByTagName(i)[0], n = g.createElement(i), o = g.getElementsByTagName("title")[0];
+                o && (f[h].t = g.getElementsByTagName("title")[0].text);
+                f[h].x = Math.random();
+                f[h].w = f.screen.width;
+                f[h].h = f.screen.height;
+                f[h].j = f.innerHeight;
+                f[h].e = f.innerWidth;
+                f[h].l = f.location.href;
+                f[h].r = g.referrer;
+                f[h].k = f.screen.colorDepth;
+                f[h].n = g.characterSet;
+                f[h].o = (new Date).getTimezoneOffset();
+                if (f.dataLayer) for (const s of Object.entries(Object.entries(dataLayer).reduce(((t, u) => ({...t[1], ...u[1]}))))) zaraz.set(s[0], s[1], {scope: "page"});
+                f[h].q = [];
+                for (; f.zaraz.q.length;) {
+                    const v = f.zaraz.q.shift();
+                    f[h].q.push(v)
+                }
+                n.defer = !0;
+                for (const w of [localStorage, sessionStorage]) Object.keys(w || {}).filter((y => y.startsWith("_zaraz_"))).forEach((x => {
+                    try {
+                        f[h]["z_" + x.slice(7)] = JSON.parse(w.getItem(x))
+                    } catch {
+                        f[h]["z_" + x.slice(7)] = w.getItem(x)
+                    }
+                }));
+                n.referrerPolicy = "origin";
+                n.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(f[h])));
+                m.parentNode.insertBefore(n, m)
+            };
+            ["complete", "interactive"].includes(g.readyState) ? zaraz.init() : f.addEventListener("DOMContentLoaded", zaraz.init)
+        }(w, d, "zarazData", "script");
+    })(window, document);</script>
 </head>
 <body>
-  <p>Fuck This</p>
+<div class="s010">
+    <form>
+        <div class="inner-form">
+            <div class="basic-search">
+                <div class="input-field">
+                    <input id="search" type="text" placeholder="Type Keywords">
+                    <div class="icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="advance-search">
+                <span class="desc">ADVANCED SEARCH</span>
+                <div class="row">
+                    <div class="input-field">
+                        <div class="input-select">
+                            <div class="choices" role="listbox" data-type="select-one" tabindex="0" aria-haspopup="true"
+                                 aria-expanded="false" dir="ltr"
+                                 aria-activedescendant="choices-choices-single-defaul-rb-item-choice-1">
+                                <div class="choices__inner"><select data-trigger="" name="choices-single-defaul"
+                                                                    class="choices__input is-hidden" tabindex="-1"
+                                                                    style="display:none;" aria-hidden="true"
+                                                                    data-choice="active">
+                                    <option value="" selected="">Accessories</option>
+                                </select>
+                                    <div class="choices__list choices__list--single">
+                                        <div class="choices__item choices__item--selectable choices__placeholder"
+                                             data-item="" data-id="1" data-value="" data-deletable=""
+                                             aria-selected="true">
+                                            Accessories<!--
+           -->
+                                            <button type="button" class="choices__button" data-button=""
+                                                    aria-label="Remove item: ''">
+                                                Remove item
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choices__list choices__list--dropdown" aria-expanded="false">
+                                    <div class="choices__list" dir="ltr" role="listbox">
+                                        <div class="choices__item choices__item--choice choices__item--selectable choices__placeholder is-highlighted"
+                                             data-select-text="" data-choice="" data-id="1" data-value=""
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-rb-item-choice-1" role="option"
+                                             aria-selected="true">
+                                            Accessories
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="2" data-value="Subject b"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-rb-item-choice-2" role="option">
+                                            Subject b
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="3" data-value="Subject c"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-rb-item-choice-3" role="option">
+                                            Subject c
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <div class="input-select">
+                            <div class="choices" role="listbox" data-type="select-one" tabindex="0" aria-haspopup="true"
+                                 aria-expanded="false" dir="ltr"
+                                 aria-activedescendant="choices-choices-single-defaul-in-item-choice-1">
+                                <div class="choices__inner"><select data-trigger="" name="choices-single-defaul"
+                                                                    class="choices__input is-hidden" tabindex="-1"
+                                                                    style="display:none;" aria-hidden="true"
+                                                                    data-choice="active">
+                                    <option value="" selected="">Color</option>
+                                </select>
+                                    <div class="choices__list choices__list--single">
+                                        <div class="choices__item choices__item--selectable choices__placeholder"
+                                             data-item="" data-id="1" data-value="" data-deletable=""
+                                             aria-selected="true">
+                                            Color<!--
+           -->
+                                            <button type="button" class="choices__button" data-button=""
+                                                    aria-label="Remove item: ''">
+                                                Remove item
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choices__list choices__list--dropdown" aria-expanded="false">
+                                    <div class="choices__list" dir="ltr" role="listbox">
+                                        <div class="choices__item choices__item--choice choices__item--selectable choices__placeholder is-highlighted"
+                                             data-select-text="" data-choice="" data-id="1" data-value=""
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-in-item-choice-1" role="option"
+                                             aria-selected="true">
+                                            Color
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="2" data-value="Subject b"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-in-item-choice-2" role="option">
+                                            Subject b
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="3" data-value="Subject c"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-in-item-choice-3" role="option">
+                                            Subject c
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <div class="input-select">
+                            <div class="choices" role="listbox" data-type="select-one" tabindex="0" aria-haspopup="true"
+                                 aria-expanded="false" dir="ltr"
+                                 aria-activedescendant="choices-choices-single-defaul-ac-item-choice-1">
+                                <div class="choices__inner"><select data-trigger="" name="choices-single-defaul"
+                                                                    class="choices__input is-hidden" tabindex="-1"
+                                                                    style="display:none;" aria-hidden="true"
+                                                                    data-choice="active">
+                                    <option value="" selected="">Size</option>
+                                </select>
+                                    <div class="choices__list choices__list--single">
+                                        <div class="choices__item choices__item--selectable choices__placeholder"
+                                             data-item="" data-id="1" data-value="" data-deletable=""
+                                             aria-selected="true">
+                                            Size<!--
+           -->
+                                            <button type="button" class="choices__button" data-button=""
+                                                    aria-label="Remove item: ''">
+                                                Remove item
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choices__list choices__list--dropdown" aria-expanded="false">
+                                    <div class="choices__list" dir="ltr" role="listbox">
+                                        <div class="choices__item choices__item--choice choices__item--selectable choices__placeholder is-highlighted"
+                                             data-select-text="" data-choice="" data-id="1" data-value=""
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-ac-item-choice-1" role="option"
+                                             aria-selected="true">
+                                            Size
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="2" data-value="Subject b"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-ac-item-choice-2" role="option">
+                                            Subject b
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="3" data-value="Subject c"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-ac-item-choice-3" role="option">
+                                            Subject c
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row second">
+                    <div class="input-field">
+                        <div class="input-select">
+                            <div class="choices" role="listbox" data-type="select-one" tabindex="0" aria-haspopup="true"
+                                 aria-expanded="false" dir="ltr"
+                                 aria-activedescendant="choices-choices-single-defaul-3i-item-choice-1">
+                                <div class="choices__inner"><select data-trigger="" name="choices-single-defaul"
+                                                                    class="choices__input is-hidden" tabindex="-1"
+                                                                    style="display:none;" aria-hidden="true"
+                                                                    data-choice="active">
+                                    <option value="" selected="">Sale</option>
+                                </select>
+                                    <div class="choices__list choices__list--single">
+                                        <div class="choices__item choices__item--selectable choices__placeholder"
+                                             data-item="" data-id="1" data-value="" data-deletable=""
+                                             aria-selected="true">
+                                            Sale<!--
+           -->
+                                            <button type="button" class="choices__button" data-button=""
+                                                    aria-label="Remove item: ''">
+                                                Remove item
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choices__list choices__list--dropdown" aria-expanded="false">
+                                    <div class="choices__list" dir="ltr" role="listbox">
+                                        <div class="choices__item choices__item--choice choices__item--selectable choices__placeholder is-highlighted"
+                                             data-select-text="" data-choice="" data-id="1" data-value=""
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-3i-item-choice-1" role="option"
+                                             aria-selected="true">
+                                            Sale
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="2" data-value="Subject b"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-3i-item-choice-2" role="option">
+                                            Subject b
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="3" data-value="Subject c"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-3i-item-choice-3" role="option">
+                                            Subject c
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <div class="input-select">
+                            <div class="choices" role="listbox" data-type="select-one" tabindex="0" aria-haspopup="true"
+                                 aria-expanded="false" dir="ltr"
+                                 aria-activedescendant="choices-choices-single-defaul-92-item-choice-5">
+                                <div class="choices__inner"><select data-trigger="" name="choices-single-defaul"
+                                                                    class="choices__input is-hidden" tabindex="-1"
+                                                                    style="display:none;" aria-hidden="true"
+                                                                    data-choice="active">
+                                    <option value="" selected="">Time</option>
+                                </select>
+                                    <div class="choices__list choices__list--single">
+                                        <div class="choices__item choices__item--selectable choices__placeholder"
+                                             data-item="" data-id="1" data-value="" data-deletable=""
+                                             aria-selected="true">
+                                            Time<!--
+           -->
+                                            <button type="button" class="choices__button" data-button=""
+                                                    aria-label="Remove item: ''">
+                                                Remove item
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choices__list choices__list--dropdown" aria-expanded="false">
+                                    <div class="choices__list" dir="ltr" role="listbox">
+                                        <div class="choices__item choices__item--choice choices__item--selectable choices__placeholder is-highlighted"
+                                             data-select-text="" data-choice="" data-id="5" data-value=""
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-92-item-choice-5" role="option"
+                                             aria-selected="true">
+                                            Time
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="1" data-value="Last time"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-92-item-choice-1" role="option">
+                                            Last time
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="2" data-value="This month"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-92-item-choice-2" role="option">
+                                            This month
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="3" data-value="This week"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-92-item-choice-3" role="option">
+                                            This week
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="4" data-value="This year"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-92-item-choice-4" role="option">
+                                            This year
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="6" data-value="Today"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-92-item-choice-6" role="option">
+                                            Today
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <div class="input-select">
+                            <div class="choices" role="listbox" data-type="select-one" tabindex="0" aria-haspopup="true"
+                                 aria-expanded="false" dir="ltr"
+                                 aria-activedescendant="choices-choices-single-defaul-b1-item-choice-3">
+                                <div class="choices__inner"><select data-trigger="" name="choices-single-defaul"
+                                                                    class="choices__input is-hidden" tabindex="-1"
+                                                                    style="display:none;" aria-hidden="true"
+                                                                    data-choice="active">
+                                    <option value="" selected="">Type</option>
+                                </select>
+                                    <div class="choices__list choices__list--single">
+                                        <div class="choices__item choices__item--selectable choices__placeholder"
+                                             data-item="" data-id="1" data-value="" data-deletable=""
+                                             aria-selected="true">
+                                            Type<!--
+           -->
+                                            <button type="button" class="choices__button" data-button=""
+                                                    aria-label="Remove item: ''">
+                                                Remove item
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choices__list choices__list--dropdown" aria-expanded="false">
+                                    <div class="choices__list" dir="ltr" role="listbox">
+                                        <div class="choices__item choices__item--choice choices__item--selectable choices__placeholder is-highlighted"
+                                             data-select-text="" data-choice="" data-id="3" data-value=""
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-b1-item-choice-3" role="option"
+                                             aria-selected="true">
+                                            Type
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="1" data-value="Subject b"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-b1-item-choice-1" role="option">
+                                            Subject b
+                                        </div>
+                                        <div class="choices__item choices__item--choice choices__item--selectable"
+                                             data-select-text="" data-choice="" data-id="2" data-value="Subject c"
+                                             data-choice-selectable=""
+                                             id="choices-choices-single-defaul-b1-item-choice-2" role="option">
+                                            Subject c
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row third">
+                    <div class="input-field">
+                        <div class="result-count">
+                            <span>108 </span>results
+                        </div>
+                        <div class="group-btn">
+                            <button class="btn-delete" id="delete">RESET</button>
+                            <button class="btn-search">SEARCH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="js/extention/choices.js"></script>
+<script>
+    const customSelects = document.querySelectorAll("select");
+    const deleteBtn = document.getElementById('delete')
+    const choices = new Choices('select',
+        {
+            searchEnabled: false,
+            itemSelectText: '',
+            removeItemButton: true,
+        });
+    for (let i = 0; i < customSelects.length; i++) {
+        customSelects[i].addEventListener('addItem', function (event) {
+            if (event.detail.value) {
+                let parent = this.parentNode.parentNode
+                parent.classList.add('valid')
+                parent.classList.remove('invalid')
+            } else {
+                let parent = this.parentNode.parentNode
+                parent.classList.add('invalid')
+                parent.classList.remove('valid')
+            }
+        }, false);
+    }
+    deleteBtn.addEventListener("click", function (e) {
+        e.preventDefault()
+        const deleteAll = document.querySelectorAll('.choices__button')
+        for (let i = 0; i < deleteAll.length; i++) {
+            deleteAll[i].click();
+        }
+    });
+
+</script>
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
+<script defer=""
+        src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
+        integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
+        data-cf-beacon="{&quot;rayId&quot;:&quot;79d9dd7a4c7860ce&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2023.2.0&quot;,&quot;si&quot;:100}"
+        crossorigin="anonymous"></script>
+
+
 </body>
 </html>
