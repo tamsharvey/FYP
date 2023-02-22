@@ -12,7 +12,7 @@ function login()
             console.log("User object", user);
             // Call firebase function to save users other credentials, create another docs etc.
 
-            window.location.href = "/index.html"
+            window.location.href = "/MovieSearch.html"
             // ...
         })
         .catch((error) => {
