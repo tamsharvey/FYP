@@ -61,8 +61,8 @@
             <div class="row third">
                 <div class="input-field">
                     <div class="group-btn">
-                        <form action="/test/" method="post">
-                            <button class="btn-search" id ="movieSearch">SEARCH</button>
+                        <form action="./searchMovie" method="post">
+                            <button class="btn-search">SEARCH</button>
                         </form>
                     </div>
                 </div>
@@ -70,6 +70,12 @@
         </div>
     </form>
 </div>
+<script src="func.py"></script>
+    <script>
+        $(window).on("load", function() {
+            $('body').addClass('loaded');
+        });
+    </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
     // Tracking code on webpage - Google Tag Manager

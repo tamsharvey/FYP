@@ -1,7 +1,10 @@
 {
   "dependencies": {
     "ajax": "^0.0.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
     "firebase": "^9.17.1",
+    "firebase-functions": "^4.2.1",
     "jquery": "^3.6.3",
     "pyodide": "^0.22.1"
   }
