@@ -6,7 +6,7 @@ import pandas as pd
 import sqlite3
 
 # Gets the secret API key (you have to get one from OMDB website and use that, 1000 daily limit) from a JSON file, stored in the same folder
-with open('/Users/tamsinharvey/Documents/College/4th Year/FYP/App/public/json_files/APIkeys.json') as f:
+with open('/App/public/json_files/APIkeys.json') as f:
     keys = json.load(f)
     omdbapi = keys['OMDBapi']
     serviceurl = 'http://www.omdbapi.com/?'

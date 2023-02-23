@@ -7,13 +7,16 @@
     <link href="css/MovieSearch.css" rel="stylesheet">
     <meta name="robots" content="noindex, follow">
 
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"
             nonce="f30d252b-c13c-49d1-9e03-5cae290255ca"></script>
     <script defer="" referrerpolicy="origin"
             src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ4JTIyJTNBMC45NDUyNDc2ODU1MTA5MjQ0JTJDJTIydyUyMiUzQTE5MjAlMkMlMjJoJTIyJTNBMTA4MCUyQyUyMmolMjIlM0E5NzYlMkMlMjJlJTIyJTNBMTY3OSUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRmV0YyUyRnNlYXJjaGYlMkZjb2xvcmxpYi1zZWFyY2gtMTAlMkYlMjIlMkMlMjJyJTIyJTNBJTIyJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQTAlMkMlMjJxJTIyJTNBJTVCJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIwJTIyJTJDJTIyY29uZmlnJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIxJTIyJTJDJTIyVUEtMjM1ODE1NjgtMTMlMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlNUQlN0Q="></script>
-    <script src="/js/movieSearch.js"></script>
+    <!--    <script src="/MovieSearch.py"></script>-->
+
 
     <header class="masthead text-center text-white">
         <div class="masthead-content">
@@ -41,6 +44,7 @@
     </header>
 </head>
 <body>
+
 <div class="s010">
     <form>
         <div class="inner-form">
@@ -57,7 +61,9 @@
             <div class="row third">
                 <div class="input-field">
                     <div class="group-btn">
-                        <button onclick="movieSearch()" class="btn-search">SEARCH</button>
+                        <form action="/test/" method="post">
+                            <button class="btn-search" id ="movieSearch">SEARCH</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -81,8 +87,7 @@
         src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
         integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
         data-cf-beacon="{&quot;rayId&quot;:&quot;79d9dd7a4c7860ce&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2023.2.0&quot;,&quot;si&quot;:100}"
-        crossorigin="anonymous"></script>
-
-
+        crossorigin="anonymous">
+</script>
 </body>
 </html>
