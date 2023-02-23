@@ -12,9 +12,7 @@
     position: relative;
     overflow: hidden;
     padding-bottom:415px;
-    background: linear-gradient(to bottom, #4169e1 18%, #5174de 35%, #efdce0 80%, #efdce0 100%);
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: linear-gradient(to bottom, #ec1212 18%, #E14184FF 35%, #eac1ca 80%, #efdce0 100%) no-repeat center center;
     background-size: cover;
   }
 
