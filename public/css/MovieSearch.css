@@ -14,14 +14,14 @@ html {
  */
 body {
   background-color: #efdce0;
-  margin: 0;
+  /*margin: 0;*/
 }
 
 .navbar {
    padding-top: 100px;
     position: relative;
     overflow: hidden;
-    padding-bottom:100px;
+    padding-bottom:150px;
   background: #ee5151;
   background-size: cover;
 }
@@ -36,7 +36,7 @@ footer,
 header,
 nav,
 section {
-  display: block;
+  display: flex;
 }
 
 /**
@@ -58,7 +58,7 @@ figcaption,
 figure,
 main {
   /* 1 */
-  display: block;
+  display: flex;
 }
 
 /**
@@ -463,8 +463,12 @@ legend {
   box-sizing: border-box;
 }
 
+cont {
+  background-color: #efdce0;
+  padding-top: 500px;
+}
 .s010 {
-  min-height: 100vh;
+  min-height: 150vh;
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
@@ -479,6 +483,7 @@ legend {
   width: 100%;
   max-width: 790px;
   margin: 0;
+
 }
 
 .s010 form .inner-form {
@@ -809,3 +814,4 @@ legend {
     margin-bottom: 20px;
   }
 }
+

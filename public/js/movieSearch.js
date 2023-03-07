@@ -1,47 +1,145 @@
-function movieSearch(w, d) {
-    !function (f, g, h, i) {
-        f[h] = f[h] || {};
-        f[h].executed = [];
-        f.zaraz = {deferred: [], listeners: []};
-        f.zaraz.q = [];
-        f.zaraz._f = function (j) {
-            return function () {
-                var k = Array.prototype.slice.call(arguments);
-                f.zaraz.q.push({m: j, a: k})
-            }
-        };
-        for (const l of ["track", "set", "debug"]) f.zaraz[l] = f.zaraz._f(l);
-        f.zaraz.init = () => {
-            var m = g.getElementsByTagName(i)[0], n = g.createElement(i), o = g.getElementsByTagName("title")[0];
-            o && (f[h].t = g.getElementsByTagName("title")[0].text);
-            f[h].x = Math.random();
-            f[h].w = f.screen.width;
-            f[h].h = f.screen.height;
-            f[h].j = f.innerHeight;
-            f[h].e = f.innerWidth;
-            f[h].l = f.location.href;
-            f[h].r = g.referrer;
-            f[h].k = f.screen.colorDepth;
-            f[h].n = g.characterSet;
-            f[h].o = (new Date).getTimezoneOffset();
-            if (f.dataLayer) for (const s of Object.entries(Object.entries(dataLayer).reduce(((t, u) => ({...t[1], ...u[1]}))))) zaraz.set(s[0], s[1], {scope: "page"});
-            f[h].q = [];
-            for (; f.zaraz.q.length;) {
-                const v = f.zaraz.q.shift();
-                f[h].q.push(v)
-            }
-            n.defer = !0;
-            for (const w of [localStorage, sessionStorage]) Object.keys(w || {}).filter((y => y.startsWith("_zaraz_"))).forEach((x => {
-                try {
-                    f[h]["z_" + x.slice(7)] = JSON.parse(w.getItem(x))
-                } catch {
-                    f[h]["z_" + x.slice(7)] = w.getItem(x)
-                }
-            }));
-            n.referrerPolicy = "origin";
-            n.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(f[h])));
-            m.parentNode.insertBefore(n, m)
-        };
-        ["complete", "interactive"].includes(g.readyState) ? zaraz.init() : f.addEventListener("DOMContentLoaded", zaraz.init)
-    }(w, d, "zarazData", "script");
-    };
+const APIURL = "https://api.themoviedb.org/3/discover/movie?api_key=53c1020b3a0e7aeb482d50f68918374e";
+const IMGPATH = "https://image.tmdb.org/t/p/w175";
+const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=53c1020b3a0e7aeb482d50f68918374e&query=";
+
+
+const main = document.getElementById("content");
+const form = document.getElementById("form");
+const search = document.getElementById("search");
+
+// initially get fav movies
+getMovies(APIURL);
+
+async function getMovies(url) {
+    const resp = await fetch(url);
+    const respData = await resp.json();
+
+    console.log(respData);
+
+    showMovies(respData.results);
+}
+
+function showMovies(movies) {
+    // clear main
+    main.innerHTML = "";
+
+    movies.forEach((movie) => {
+        const { poster_path, title, vote_average, overview } = movie;
+
+        const movieEl = document.createElement("div");
+        movieEl.classList.add("movie");
+
+        movieEl.innerHTML = `
+            <img
+                src="${IMGPATH + poster_path}"
+                alt="${title}"
+            />
+            <div class="movie-info">
+                <h3>${title}</h3>
+                <span class="${getClassByRate(
+            vote_average
+        )}">${vote_average}</span>
+            </div>
+            <div class="overview">
+                <h3>Overview:</h3>
+                ${overview}
+            </div>
+        `;
+
+        main.appendChild(movieEl);
+    });
+}
+
+function getClassByRate(vote) {
+    if (vote >= 8) {
+        return "green";
+    } else if (vote >= 5) {
+        return "orange";
+    } else {
+        return "red";
+    }
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const searchTerm = search.value;
+
+    if (searchTerm) {
+        getMovies(SEARCHAPI + searchTerm);
+
+        search.value = "";
+    }
+});
+
+
+
+// const APIURL = "https://api.themoviedb.org/3/discover/movie?api_key=53c1020b3a0e7aeb482d50f68918374e";
+// const IMGPATH = "https://image.tmdb.org/t/p/w1280";
+// const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=53c1020b3a0e7aeb482d50f68918374e&query=";
+//
+//
+// const main = document.getElementById("content");
+// const form = document.getElementById("form");
+// const search = document.getElementById("search");
+//
+// // initially get fav movies
+// getMovies(APIURL);
+//
+// async function getMovies(url) {
+//     const resp = await fetch(url);
+//     const respData = await resp.json();
+//
+//     console.log(respData);
+//
+//     showMovies(respData.results);
+// }
+//
+// function showMovies(movies) {
+//     // clear main
+//     // main.innerHTML = "MovieSearch.html";
+//     const existingElement = document.getElementById("content");
+//
+//     movies.forEach((movie) => {
+//         const { poster_path, title, vote_average, overview } = movie;
+//
+//         const movieEl = document.createElement("div");
+//         movieEl.classList.add("movie");
+//
+//         movieEl.innerHTML = `
+//             <img src="${IMGPATH + poster_path}" alt="${title}" />
+//             <div class="movie-info">
+//                 <h3>${title}</h3>
+//                 <span class="${getClassByRate( vote_average )}">${vote_average}</span>
+//             </div>
+//             <div class="overview">
+//                 <h3>Overview:</h3>
+//                 ${overview}
+//             </div>
+//         `;
+//
+//         existingElement.appendChild(movieEl);
+//     });
+// }
+//
+// function getClassByRate(vote) {
+//     if (vote >= 8) {
+//         return "green";
+//     } else if (vote >= 5) {
+//         return "orange";
+//     } else {
+//         return "red";
+//     }
+// }
+//
+// form.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//
+//     const searchTerm = search.value;
+//
+//     if (searchTerm) {
+//         getMovies(SEARCHAPI + searchTerm);
+//
+//         search.value = "";
+//     }
+// });
