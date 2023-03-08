@@ -1,5 +1,5 @@
 const APIURL = "https://api.themoviedb.org/3/discover/movie?api_key=53c1020b3a0e7aeb482d50f68918374e";
-const IMGPATH = "https://image.tmdb.org/t/p/w175";
+const IMGPATH = "https://image.tmdb.org/t/p/w300";
 const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=53c1020b3a0e7aeb482d50f68918374e&query=";
 
 

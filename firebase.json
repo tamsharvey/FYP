@@ -12,7 +12,6 @@
     }
   ],
   "hosting": {
-    "site": "finalyearproject-837f4",
     "public": "public",
     "ignore": [
       "firebase.json",
@@ -42,7 +41,7 @@
       "port": 9099
     },
     "firestore": {
-      "port": 8081
+      "port": 8001
     },
     "database": {
       "port": 9002
