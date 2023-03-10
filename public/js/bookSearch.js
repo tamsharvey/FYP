@@ -4,7 +4,6 @@ const API ="https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-
 const bMain = document.getElementById("content");
 const form = document.getElementById("bookForm");
 const search = document.getElementById("bookName");
-const G = "https://www.googleapis.com/books/v1/volumes?&key=AIzaSyCyEbtegGBSKBrX91PLT_fqEPuaJHY3fCk/";
 
 // initially get fav movies
 NYTBooks(API);
@@ -35,12 +34,18 @@ async function showBooks(books) {
             bookEL.classList.add("book");
 
             bookEL.innerHTML = `
-        <div class="book">
-          <h3>${bookInfo.title} - By ${bookInfo.author}</h3>
-          <h3>Description:</h3>
-          ${bookInfo.description}
-        </div>
-        <img src="${img}">`;
+            <div class="row">
+                <div class="column">
+                    <img src="${img}">
+                </div> 
+                <div class="column">
+                    <h3>${bookInfo.title} - By ${bookInfo.author}</h3>
+                    <h3>Description:</h3>
+                     ${bookInfo.description}
+                </div>
+            <hr>
+            </div>
+        `;
 
             bMain.appendChild(bookEL);
         } catch (error) {

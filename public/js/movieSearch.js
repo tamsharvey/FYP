@@ -30,20 +30,21 @@ function showMovies(movies) {
         movieEl.classList.add("movie");
 
         movieEl.innerHTML = `
-            <img
-                src="${IMGPATH + poster_path}"
-                alt="${title}"
-            />
-            <div class="movie-info">
-                <h3>${title}</h3>
-                <span class="${getClassByRate(
-            vote_average
-        )}">${vote_average}</span>
+        <div class="row">
+            <div class="column">
+                <img src="${IMGPATH + poster_path}" alt="${title}"/>
             </div>
-            <div class="overview">
-                <h3>Overview:</h3>
-                ${overview}
+            <div class="column">
+                <div class="movie-info">
+                    <h3>${title}</h3>
+                    <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+                </div>
+                <div class="overview">
+                    <h3>Overview:</h3>
+                    ${overview}
+                </div>
             </div>
+          </div>
         `;
 
         main.appendChild(movieEl);

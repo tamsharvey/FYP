@@ -72,14 +72,14 @@ figure {
  * 1. Add the correct box sizing in Firefox.
  * 2. Show the overflow in Edge and IE.
  */
-hr {
-  box-sizing: content-box;
-  /* 1 */
-  height: 0;
-  /* 1 */
-  overflow: visible;
-  /* 2 */
-}
+/*hr {*/
+/*  box-sizing: content-box;*/
+/*  !* 1 *!*/
+/*  height: 0;*/
+/*  !* 1 *!*/
+/*  overflow: visible;*/
+/*  !* 2 *!*/
+/*}*/
 
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -457,9 +457,9 @@ legend {
   -webkit-padding-end: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
+/** {*/
+/*  box-sizing: border-box;*/
+/*}*/
 
 cont {
   background-color: #efdce0;
@@ -810,13 +810,8 @@ cont {
   }
 }
 
-.nb1 {
+.nb {
   border:none;
   scrolling: no;
   height: min-content;
-}
-
-.nb2 {
-  border:none;
-  scrolling: no;
 }
