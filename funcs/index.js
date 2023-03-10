@@ -1,3 +1,5 @@
+import {request} from "axios";
+
 const functions = require("firebase-functions");
 const admin = require('firebase-admin');
 const cors = require('cors')({origin: true});
@@ -8,6 +10,7 @@ admin.initializeApp();
 
 const apiKey = '53c1020b3a0e7aeb482d50f68918374e';
 const movieSearchAPI = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}`;
+
 
 // Retrieves data from database, forms it and send its back to http request
 exports.searchMovie = functions.https.onRequest((request, response) => {

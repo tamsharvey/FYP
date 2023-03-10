@@ -31,7 +31,7 @@ function register()
             var user = userCredential.user;
            document.cookie = "accessToken=" + user.za;
             document.cookie = "uid=" + user.uid;
-	        window.location.href = "./MovieSearch.html"
+	        window.location.href = "../SearchHome.html"
             // ...
         })
         .catch((error) => {

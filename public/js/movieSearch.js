@@ -4,8 +4,8 @@ const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=53c1020b3a
 
 
 const main = document.getElementById("content");
-const form = document.getElementById("form");
-const search = document.getElementById("search");
+const form = document.getElementById("movieForm");
+const search = document.getElementById("movieName");
 
 // initially get fav movies
 getMovies(APIURL);
@@ -63,7 +63,7 @@ function getClassByRate(vote) {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const searchTerm = search.value;
+    const movieSearch = search.value;
 
     if (searchTerm) {
         getMovies(SEARCHAPI + searchTerm);
@@ -97,7 +97,7 @@ form.addEventListener("submit", (e) => {
 //
 // function showMovies(movies) {
 //     // clear main
-//     // main.innerHTML = "MovieSearch.html";
+//     // main.innerHTML = "SearchHome.html";
 //     const existingElement = document.getElementById("content");
 //
 //     movies.forEach((movie) => {
@@ -143,3 +143,24 @@ form.addEventListener("submit", (e) => {
 //         search.value = "";
 //     }
 // });
+
+// const moviesDiv = document.getElementById("movies")
+//
+// import { getPopularMovies } from "/apiRequest";
+// import { config } from "/movieAPIConfig";
+//
+// export async function renderMovies() {
+//     const movies = await getPopularMovies()
+//     console.log(movies)
+//     moviesDiv.innerHTML = movies?.map(movie => renderSingleMovie(movie)).join("")
+// }
+//
+// function renderSingleMovie(movie) {
+//     return (
+//         `
+//         <div class="col-4 col-lg-3 col-xl-2 p-1">
+//             <img src="${config.image_base_url + movie?.poster_path}" class="img-fluid" >
+//         </div>
+//         `
+//     )
+// }
