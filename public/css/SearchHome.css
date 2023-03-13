@@ -815,3 +815,9 @@ cont {
   scrolling: no;
   height: min-content;
 }
+
+.nb1 {
+  border:none;
+  scrolling: no;
+  height: min-content;
+}

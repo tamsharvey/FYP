@@ -11,15 +11,15 @@
   transform: translateY(-30px);
 }
 
-.row {
-  /*border: 1px solid #1a202c;*/
+#row {
+  border: 1px solid #1a202c;
   padding-bottom: 5px;
   display: flex;
 }
 
-.column {
+#column {
   flex: 25% 75%;
-  padding: 10px;
+  padding-left: 10px;
 }
 
 .book hr {

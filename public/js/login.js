@@ -12,7 +12,7 @@ function login()
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in
-            var user = userCredential.user;
+            const user = userCredential.user;
             document.cookie = "accessToken=" + user.za;
             document.cookie = "uid=" + user.uid; //not currently using yet
             console.log("User object", user);
@@ -22,8 +22,8 @@ function login()
             // ...
         })
         .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
+            const errorCode = error.code;
+            const errorMessage = error.message;
             console.log(errorCode, errorMessage);
         });
 }

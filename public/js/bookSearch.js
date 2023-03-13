@@ -12,8 +12,6 @@ async function NYTBooks(url) {
     const resp = await fetch(url);
     const respData = await resp.json();
 
-    console.log(respData);
-
     showBooks(respData.results);
 }
 
@@ -29,7 +27,6 @@ async function showBooks(books) {
             const id = await getID(isbn);
 
             const img = `https://books.google.com/books/content?id=${id}&printsec=frontcover&img=1&zoom=5&source=gbs_api`;
-            console.log(img);
             const bookEL = document.createElement("div");
             bookEL.classList.add("book");
 
@@ -43,7 +40,7 @@ async function showBooks(books) {
                     <h3>Description:</h3>
                      ${bookInfo.description}
                 </div>
-            <hr>
+                <hr>
             </div>
         `;
 
