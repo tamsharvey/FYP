@@ -1,0 +1,182 @@
+
+* {
+  /*box-sizing: border-box;*/
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+
+  background-color: #030303;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+header {
+  background-color: #363636;
+  display: flex;
+
+}
+
+h1{
+  color: whitesmoke;
+  align-self: center;
+  margin-left: 28rem;
+}
+
+
+/*div{*/
+/*  display: flex;*/
+/*  flex-wrap: nowrap;*/
+/*}*/
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 25%;
+}
+
+@media screen  {
+  .column {
+    flex: 100%;
+  }
+}
+
+.movie {
+  background-color: #ee5151;
+  border-radius: 3px;
+  /*box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);*/
+  overflow: hidden;
+  position: relative;
+  margin: 1rem;
+  justify-content: center;
+  align-content: center;
+  width: 300px;
+}
+
+.movie img {
+  width: 100%;
+}
+
+.movie-info {
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.movie-info h3 {
+  margin: 0;
+ position:center;
+}
+
+.movie-info span {
+  background-color: #efdce0;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 0.25rem 0.8rem;
+
+}
+.movie-info span.green {
+  color: rgb(39, 189, 39);
+}
+
+.movie-info span.orange {
+  color: #e07b00;
+}
+
+.movie-info span.red {
+  color: rgb(189, 42, 42);
+}
+
+.overview {
+  background-color: #fff;
+  padding: 2rem;
+  position: absolute;
+  max-height: 100%;
+  overflow: auto;
+  left: 0;
+  bottom: -20px;
+  right:0px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in;
+}
+
+.overview h3 {
+  margin-top: 0;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
+
+/*.row {*/
+/*  !*border: 1px solid #1a202c;*!*/
+/*  padding-bottom: 5px;*/
+/*  display: flex;*/
+/*}*/
+
+/*.column {*/
+/*  flex: 25% 75%;*/
+/*  padding: 10px;*/
+/*}*/
+
+/*.book hr {*/
+/*  height: 1px;*/
+/*  margin: 10px 0;*/
+/*  border: none;*/
+/*  background-color: #ccc;*/
+/*}*/
+
+/*.entry {*/
+/*  margin: 30px 0px;*/
+/*  padding: 20px 50px;*/
+/*  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.21);*/
+/*  -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.21);*/
+/*  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.21); }*/
+/*.entry:before {*/
+/*  content: attr(nyt-rank);*/
+/*  font-size: 18px;*/
+/*  font-family: 'Lato', sans-serif;*/
+/*  display: inline-block;*/
+/*  width: 50px;*/
+/*  height: 50px;*/
+/*  line-height: 25px;*/
+/*  padding: 20px 20px;*/
+/*  text-align: center;*/
+/*  transform: translate(-100px);*/
+/*  border: 4px solid #282c37;*/
+/*  background-color: #fff;*/
+/*  border-radius: 50%;*/
+/*  color: #282c37;*/
+/*  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.21);*/
+/*  -moz-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.21);*/
+/*  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.21); }*/
+
+/*#best-seller-titles {*/
+/*  max-width: 475px;*/
+/*  margin: 120px auto; }*/
+/*#best-seller-titles a {*/
+/*  margin: 40px 0px 0px 0px;*/
+/*  text-decoration: none;*/
+/*  color: #2b90d9;*/
+/*  line-height: .5; }*/
+/*#best-seller-titles h1, #best-seller-titles h2, #best-seller-titles h3, #best-seller-titles h4 {*/
+/*  color: #282c37; }*/
+/*#best-seller-titles p {*/
+/*  color: #333030;*/
+/*  line-height: 1.4; }*/
+/*#best-seller-titles .publisher {*/
+/*  color: #333030; }*/
+/*#best-seller-titles .stats hr {*/
+/*  opacity: .5; }*/
+/*#best-seller-titles .stats p {*/
+/*  color: #282c37; }*/
+
+
+

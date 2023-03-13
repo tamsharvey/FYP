@@ -12,7 +12,6 @@
     }
   ],
   "hosting": {
-    "site": "finalyearproject-837f4",
     "public": "public",
     "ignore": [
       "firebase.json",
@@ -26,5 +25,26 @@
   "firestore": {
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
+  },
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "hosting": {
+      "port": 5008
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true,
+    "auth": {
+      "port": 9099
+    },
+    "firestore": {
+      "port": 8002
+    },
+    "database": {
+      "port": 9002
+    }
   }
 }

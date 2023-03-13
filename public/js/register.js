@@ -18,6 +18,12 @@ function register()
         return;
     }
 
+    if (password1.length < 6 || password2.length < 6)
+    {
+        alert("Passwords must be at least 6 characters.");
+        return;
+    }
+
     firebase.auth().createUserWithEmailAndPassword(email, password1)
         .then((userCredential) =>
         {
@@ -25,7 +31,7 @@ function register()
             var user = userCredential.user;
            document.cookie = "accessToken=" + user.za;
             document.cookie = "uid=" + user.uid;
-	        window.location.href = "/uploading.html"
+	        window.location.href = "../SearchHome.html"
             // ...
         })
         .catch((error) => {

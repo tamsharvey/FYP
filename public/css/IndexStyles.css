@@ -90,6 +90,10 @@ body {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.icon-background1
+{
+    color: royalblue;
+}
 .fa-circle
 {
     color: red;
