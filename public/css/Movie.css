@@ -6,8 +6,7 @@
 }
 
 body {
-
-  background-color: #030303;
+  background-color: #efdce0 !important;
   font-family: "Poppins", sans-serif;
   margin: 0;
 }
@@ -29,13 +28,13 @@ h1{
 /*  display: flex;*/
 /*  flex-wrap: nowrap;*/
 /*}*/
-.row {
-  display: flex;
-}
+/*.row {*/
+/*  display: flex;*/
+/*}*/
 
-.column {
-  flex: 25%;
-}
+/*.column {*/
+/*  flex: 25%;*/
+/*}*/
 
 @media screen  {
   .column {
@@ -52,11 +51,14 @@ h1{
   margin: 1rem;
   justify-content: center;
   align-content: center;
-  width: 300px;
+  width: 215px;
+  height: 415px;
 }
 
 .movie img {
   width: 100%;
+  height: 50%;
+  object-fit: cover;
 }
 
 .movie-info {
@@ -72,7 +74,9 @@ h1{
 
 .movie-info h3 {
   margin: 0;
- position:center;
+  position:center;
+  font-size: 16px; /* Increase font size for better visibility */
+  font-weight: bold;
 }
 
 .movie-info span {
@@ -96,19 +100,21 @@ h1{
 
 .overview {
   background-color: #fff;
-  padding: 2rem;
+  padding: 1rem;
   position: absolute;
+  height:auto;
   max-height: 100%;
   overflow: auto;
   left: 0;
-  bottom: -20px;
+  bottom: 0px;
   right:0px;
   transform: translateY(100%);
   transition: transform 0.3s ease-in;
+  font-size: 15px;
 }
 
 .overview h3 {
-  margin-top: 0;
+  margin-top:5px;
 }
 
 .movie:hover .overview {
@@ -116,15 +122,64 @@ h1{
 }
 
 /*.row {*/
-/*  !*border: 1px solid #1a202c;*!*/
-/*  padding-bottom: 5px;*/
 /*  display: flex;*/
+/*  flex-wrap: nowrap;*/
+/*  !*flex-direction: row;*!*/
+/*  overflow-x: scroll;*/
+/*  !*padding-bottom: 5px;*!*/
+/*  !*margin: 0 -10px; !* Add negative margin to counteract column padding *!*!*/
+/*  -webkit-overflow-scrolling: touch;*/
+/*  width: 100%;*/
 /*}*/
 
 /*.column {*/
-/*  flex: 25% 75%;*/
+/*  flex-basis: calc(25% - 20px); !* assuming 10px padding on left and right *!*/
+/*  padding: 10px;*/
+/*  box-sizing: border-box;*/
+/*}*/
+
+
+/*.column {*/
+/*  flex: none;*/
+/*  padding: 15px;*/
+/*  box-sizing: border-box;*/
+/*  white-space: normal;*/
+/*  width: 200px; !* Set the desired smaller width for movie divs *!*/
+/*}*/
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.column {
+  flex: none;
+  white-space: normal;
+  width: 215px;
+  margin-right: 25px;
+}
+
+
+/*.column {*/
+/*  flex: none; !* Prevent the column from growing or shrinking *!*/
 /*  padding: 10px;*/
 /*}*/
+
+
+.movie img {
+  width: 100%;
+  height: auto;
+}/* Make sure the image height
+
+
+/*.row {*/
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*  padding-bottom: 5px;*/
+/*}*/
+
 
 /*.book hr {*/
 /*  height: 1px;*/

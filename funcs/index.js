@@ -9,6 +9,18 @@ admin.initializeApp();
 const apiKey = '53c1020b3a0e7aeb482d50f68918374e';
 const movieSearchAPI = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}`;
 
+exports.getUserData = functions.https.onCall((data, context) => {
+    const uid = context.auth.uid;
+    return admin.auth().getUser(uid)
+        .then((userRecord) => {
+            console.log('User data:', userRecord.toJSON());
+            return { data: userRecord.toJSON() };
+        })
+        .catch((error) => {
+            console.error('Error fetching user data:', error);
+            throw new functions.https.HttpsError('internal', 'Error fetching user data');
+        });
+});
 
 // // Retrieves data from database, forms it and send its back to http request
 // exports.searchMovie = functions.https.onRequest((request, response) => {

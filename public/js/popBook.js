@@ -19,6 +19,9 @@ async function showBooks(books) {
     // clear main
     bMain.innerHTML = "";
 
+    const row = document.createElement("div");
+    row.classList.add("row");
+
     for (const book of books) {
         const bookInfo = book.book_details[0];
         const isbn = book.isbns[0].isbn10;
@@ -26,29 +29,36 @@ async function showBooks(books) {
         try {
             const id = await getID(isbn);
 
+            const columnEL = document.createElement("div");
+            columnEL.classList.add("column");
+
             const img = `https://books.google.com/books/content?id=${id}&printsec=frontcover&img=1&zoom=5&source=gbs_api`;
             const bookEL = document.createElement("div");
             bookEL.classList.add("book");
 
+            columnEL.appendChild(bookEL);
+
             bookEL.innerHTML = `
-            <div class="row">
-                <div class="column">
+            <div class="rowB">
+                <div class="columnB">
                     <img src="${img}">
                 </div> 
-                <div class="column">
-                    <h3>${bookInfo.title} - By ${bookInfo.author}</h3>
-                    <h3>Description:</h3>
-                     ${bookInfo.description}
+                <div class="columnB">
+                    <h3 class="title">${bookInfo.title} <br> By ${bookInfo.author}</h3>
+                     <div class="book-description">
+                        <div class="des">Description: </div>
+                         ${bookInfo.description}
+                     </div>
                 </div>
-                <hr>
             </div>
         `;
 
-            bMain.appendChild(bookEL);
+            row.appendChild(columnEL);
         } catch (error) {
             console.log(`Error displaying book with ISBN ${isbn}: ${error}`);
         }
     }
+    bMain.appendChild(row);
 }
 
 function getID(isbn) {

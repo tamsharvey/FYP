@@ -478,9 +478,15 @@ cont {
 
 .s010 form {
   width: 100%;
-  max-width: 790px;
+  max-width: 2000px;
   margin: 0;
 
+}
+
+.inner-form {
+  background-color: #efdce0;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .s010 form .inner-form {
@@ -572,6 +578,7 @@ cont {
   color: #000;
   outline: 0;
   box-shadow: none;
+  width: 150px;
 }
 
 .s010 form .inner-form .basic-search {
@@ -580,10 +587,13 @@ cont {
   border-radius: 34px;
   margin-bottom: 5px;
   margin-top: 45px;
+  width: 50%;
+  /*position: center;*/
 }
 
 .s010 form .inner-form .basic-search .input-field {
   width: 100%;
+  /*position: relative;*/
 }
 
 .s010 form .inner-form .basic-search .input-field input {
@@ -821,3 +831,52 @@ cont {
   scrolling: no;
   height: min-content;
 }
+
+.searchForm {
+  height: 100px; /* set the desired height here */
+
+}
+
+
+/* Set a max-width for the container to prevent overflow */
+.container {
+  max-width: 2500px;
+  margin: 0 auto;
+}
+
+/* Set a margin-top to space out the frames from the search bar */
+.frames-container {
+  margin-top: 50px;
+}
+
+/* Set a max-height for the frames and hide any overflow */
+.movie-container, .book-container {
+  max-height: 500px;
+  overflow: hidden;
+}
+
+/* Add a border to the frames for visual separation */
+.movie-container, .book-container {
+  /*border: 1px solid #ccc;*/
+  border-radius: 10px;
+  /*box-shadow: 0px 0px 10px 0px #ccc;*/
+  padding: 10px;
+  width: 100%;
+}
+
+/* Set the size and position of the movie frame */
+.movie-container .nb {
+  width: 100%;
+  height: 500px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+/* Set the size and position of the book frame */
+.book-container .nb1 {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+

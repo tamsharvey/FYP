@@ -23,18 +23,24 @@ function showMovies(movies) {
     // clear main
     main.innerHTML = "";
 
+    const rw = document.createElement("div");
+    rw.classList.add("row");
+
     movies.forEach((movie) => {
         const { poster_path, title, vote_average, overview } = movie;
+
+        const col = document.createElement("div");
+        col.classList.add("column");
 
         const movieEl = document.createElement("div");
         movieEl.classList.add("movie");
 
         movieEl.innerHTML = `
-        <div class="row">
-            <div class="column">
+        <div class="rowM">
+            <div class="columnM">
                 <img src="${IMGPATH + poster_path}" alt="${title}"/>
             </div>
-            <div class="column">
+            <div class="columnM">
                 <div class="movie-info">
                     <h3>${title}</h3>
                     <span class="${getClassByRate(vote_average)}">${vote_average}</span>
@@ -47,8 +53,11 @@ function showMovies(movies) {
           </div>
         `;
 
-        main.appendChild(movieEl);
+        col.appendChild(movieEl); // Append movieEl to col
+        rw.appendChild(col); // Append col to rw
     });
+
+    main.appendChild(rw); // Append rw to main
 }
 
 function getClassByRate(vote) {
