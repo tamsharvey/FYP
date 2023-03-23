@@ -41,6 +41,16 @@
                   <h5 class="card-title text-center"></h5>
 
                     <div class="form-label-group">
+                        <input type="name" id="firstName" class="form-control" placeholder="First Name" required autofocus>
+                        <label for="firstName">First Name</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="name" id="lastName" class="form-control" placeholder="Last Name" required autofocus>
+                        <label for="lastName">Last Name</label>
+                    </div>
+
+                    <div class="form-label-group">
 					 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                       <label for="inputEmail">Email address</label>
                     </div>
@@ -83,7 +93,7 @@
   <script src="/__/firebase/8.4.2/firebase-firestore.js"></script>
 
   <!-- Initialize Firebase -->
-  <script src="/__/firebase/init.js"></script>
+  <script src="/__/firebase/init.js?useEmulator=true"></script>
 
   <script src="/js/register.js"></script>
 

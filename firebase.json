@@ -17,6 +17,12 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/uploaduserinfo",
+        "function": "uploaduserinfo"
+      }
     ]
   },
   "database": {
@@ -41,10 +47,13 @@
       "port": 9099
     },
     "firestore": {
-      "port": 8002
+      "port": 8007
     },
     "database": {
       "port": 9002
     }
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

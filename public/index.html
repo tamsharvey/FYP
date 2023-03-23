@@ -17,6 +17,32 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/IndexStyles.css" rel="stylesheet" />
     <a href="/Login.html" rel="Login" />
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBlArJNUOrqx7UXL5QXTvo_QqRnS7LB3VA",
+            authDomain: "finalyearproject-837f4.firebaseapp.com",
+            databaseURL: "https://finalyearproject-837f4-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "finalyearproject-837f4",
+            storageBucket: "finalyearproject-837f4.appspot.com",
+            messagingSenderId: "332274706767",
+            appId: "1:332274706767:web:42333be0870d24349abd3a",
+            measurementId: "G-37VDXY5GJK"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+
 </head>
 <body id="page-top">
 
@@ -534,7 +560,8 @@
   <script src="/__/firebase/8.4.2/firebase-firestore.js"></script>
 
   <!-- Initialize Firebase -->
-  <script src="/__/firebase/init.js"></script>
+<!--  <script src="/__/firebase/init.js"></script>-->
+  <script src="/__/firebase/init.js?useEmulator=true"></script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="jquery/jquery.js"></script>
