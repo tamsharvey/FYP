@@ -71,19 +71,17 @@
   <form class="searchForm">
     <div class="inner-form">
       <div class="row third">
-        Would you like to generate movies or books?
         <div class="input-field buttons">
           <div class="group-btn">
-            <a class="btn-search" href="./GenMovies.html">Movies</a>
-            <a class="btn-search" href="./GenBooks.html">Books</a>
+            <button class="btn-search" type="button" id="genM" onclick="switchGenMovies()">Movies</button>
+            <button class="btn-search" type="button" id="genB" onclick="switchGenBooks()">Books</button>
           </div>
         </div>
     </div>
-      Select a genre and click generate
-        <div>
-          <label for="genreFilter">Filter by genre:</label>
+        <div class="center">
+          <form>
           <select id="genreFilter" name="genreFilter">
-            <option value="">None</option>
+            <option value="">Filter by genre</option>
             <option value="28">Action</option>
             <option value="12">Adventure</option>
             <option value="16">Animation</option>
@@ -104,7 +102,12 @@
             <option value="10752">War</option>
             <option value="37">Western</option>
           </select>
-          <button class="btn-search" type="button" id="searchInput" onclick="GenMovies()">Generate</button>
+          </form>
+          <div class="input-field buttons">
+            <div class="group-btn genBtn">
+              <button class="btn-search" type="button" id="searchInput" onclick="GenMovies()">Generate</button>
+            </div>
+          </div>
         </div>
     </div>
   </form>

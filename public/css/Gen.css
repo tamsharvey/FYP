@@ -2,8 +2,148 @@ html {
     background-color: #efdce0;
 }
 
+.inner-form {
+    background-color: #efdce0;
+    width:100%;
+}
+
 .input-field{
     margin-top: 40px !important;
-
 }
+
+#subject {
+    width: 20%;
+}
+
+select {
+    width: 100%;
+    height:25px;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    transform: translateX(15%);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(5%);
+    height: 50px;
+}
+
+.genBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-10%);
+    margin-bottom: 25px;
+}
+
+.group-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-search {
+    padding: 10px 10px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-left: 15px;
+}
+
+.btn-movies {
+    margin-right: 50px !important; /* Add some space between the buttons */
+    width: 95px; /* Set the width of the button */
+}
+
+.btn-books {
+    width: 95px; /* Set the width of the button */
+}
+
+.bookImg {
+    display: block;
+    margin: 5px auto auto;
+    width: 350px;
+    height: 500px;
+}
+
+.rowB {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /*border-color: black;*/
+    /*border-style: solid;*/
+    /*border-width: thin;*/
+    padding: 15px;
+}
+
+.columnA {
+    flex: none;
+    white-space: normal;
+    width: 300px;
+    margin-right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.column {
+    flex: none;
+    white-space: normal;
+    width: 250px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:250px;
+    font-weight: bold;
+}
+
+.title {
+    color: black !important;
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 750px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.MVtitle {
+    color: black !important;
+    margin-top: 75px;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 750px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#book-list {
+    margin-top: 135px;
+    background-color: #efdce0;
+}
+
+#movie-list{
+    margin-top: 135px;
+    background-color: #efdce0;
+}
+
+centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+
 

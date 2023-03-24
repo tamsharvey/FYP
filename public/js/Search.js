@@ -14,7 +14,7 @@ function searchMovies(searchTerm, mediaType) {
     // Get reference to searchResults div
     const searchResultsDiv = document.querySelector('.searchResults');
 
-    if (media === "movie_tvshow" || media === "both") {
+    if (media === "movie" || media === "both") {
 
         fetch(movieApiUrl)
             .then(response => response.json())
@@ -163,3 +163,4 @@ function searchMovies(searchTerm, mediaType) {
 function switchToGenerateMoviesPage() {
     window.location.href = "./GenMovies.html";
 }
+

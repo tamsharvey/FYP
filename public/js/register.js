@@ -40,18 +40,18 @@ function register()
             document.cookie = 'uid=' + user.uid;
             window.location.href = '../SearchHome.html';
 
-            const db = firebase.firestore();
-            db.collection("UserData").doc(user.uid).set({
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-            })
-                .then(() => {
-                    console.log("User data saved to Firestore.");
-                })
-                .catch((error) => {
-                    console.error("Error saving user data to Firestore: ", error);
-                });
+            // const db = firebase.firestore();
+            // db.collection("UserData").doc(user.uid).set({
+            //     firstName: firstName,
+            //     lastName: lastName,
+            //     email: email,
+            // })
+            //     .then(() => {
+            //         console.log("User data saved to Firestore.");
+            //     })
+            //     .catch((error) => {
+            //         console.error("Error saving user data to Firestore: ", error);
+            //     });
 
             // Send the request to the Cloud Function after successful registration
             // xhr.send(
@@ -66,6 +66,22 @@ function register()
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
+
+            if (errorCode === "auth/email-already-in-use") {
+                const confirmAccount = confirm("The email address is already linked to an account. Do you want to login?");
+                if (confirmAccount) {
+                    // Redirect to create account page
+                    window.location.href = "../Login.html";
+                } else {
+                    // Do nothing or redirect to login page
+                    // window.location.href = "../Login.html";
+                }
+            } else if (errorCode === "auth/invalid-email") {
+                alert("Invalid Email.");
+            }
+            else {
+            }
+
             console.log(errorMessage, errorCode);
         });
 

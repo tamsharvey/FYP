@@ -24,6 +24,22 @@ function login()
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+
+            if (errorCode === "auth/user-not-found") {
+                const confirmCreateAccount = confirm("The email address is not linked to an account. Do you want to create an account?");
+                if (confirmCreateAccount) {
+                    // Redirect to create account page
+                    window.location.href = "../Register.html";
+                } else {
+                    // Do nothing or redirect to login page
+                    // window.location.href = "../Login.html";
+                }
+            } else {
+                alert("Incorrect username or password. Try again.");
+            }
+
+
+
             console.log(errorCode, errorMessage);
         });
 }

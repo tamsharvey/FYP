@@ -562,20 +562,6 @@ cont {
   box-shadow: none;
 }
 
-.s010 form .inner-form .input-field .btn-delete {
-  min-width: 100px;
-  height: 40px;
-  padding: 0 15px;
-  background: transparent;
-  white-space: nowrap;
-  border-radius: 0;
-  font-size: 14px;
-  color: #666;
-  transition: all .2s ease-out, color .2s ease-out;
-  border: 0;
-  cursor: pointer;
-  font-weight: 400;
-}
 
 .s010 form .inner-form .input-field .s010 form .inner-form .input-field {
   color: #000;
@@ -588,14 +574,31 @@ cont {
   overflow: hidden;
   margin-bottom: 15px;
   width: 50%;
-  transform: translateX(59%);
+  transform: translateX(50%);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-18%);
 }
 
 .buttons {
   overflow: hidden;
+  margin-top: 15px;
   margin-bottom: 15px;
   width: 50%;
   transform: translateX(-8%);
+}
+
+select {
+  width: 100%;
+  padding: 20px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  transform: translateX(15%);
 }
 
 .s010 form .inner-form .basic-search {
