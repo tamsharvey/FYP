@@ -70,18 +70,6 @@ function getClassByRate(vote) {
     }
 }
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const movieSearch = search.value;
-
-    if (searchTerm) {
-        getMovies(SEARCHAPI + searchTerm);
-
-        search.value = "";
-    }
-});
-
 
 
 // const APIURL = "https://api.themoviedb.org/3/discover/movie?api_key=53c1020b3a0e7aeb482d50f68918374e";

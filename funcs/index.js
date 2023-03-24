@@ -1,26 +1,63 @@
-const functions = require("firebase-functions");
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCyEbtegGBSKBrX91PLT_fqEPuaJHY3fCk",
+//     authDomain: "finalyearproject-837f4.firebaseapp.com",
+//     databaseURL: "https://finalyearproject-837f4-default-rtdb.europe-west1.firebasedatabase.app",
+//     projectId: "finalyearproject-837f4",
+//     storageBucket: "finalyearproject-837f4.appspot.com",
+//     messagingSenderId: "332274706767",
+//     appId: "1:332274706767:web:8b13dd202dff70919abd3a",
+//     measurementId: "G-CJBQP402TJ"
+// };
+//
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
+
+
+// Import the functions you need from the SDKs you need
+
+const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const cors = require('cors')({origin: true});
-const https = require('https');
-const firebase = require("firebase");
 
 admin.initializeApp();
 
-const apiKey = '53c1020b3a0e7aeb482d50f68918374e';
-const movieSearchAPI = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}`;
+// const allowedOrigins = ['https://finalyearproject-837f4.web.app'];
+// const corsOptions = {
+//     origin: function(origin, callback) {
+//         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     }
+// };
 
-exports.getUserData = functions.https.onCall((data, context) => {
-    const uid = context.auth.uid;
-    return admin.auth().getUser(uid)
-        .then((userRecord) => {
-            console.log('User data:', userRecord.toJSON());
-            return { data: userRecord.toJSON() };
-        })
-        .catch((error) => {
-            console.error('Error fetching user data:', error);
-            throw new functions.https.HttpsError('internal', 'Error fetching user data');
-        });
-});
+// exports.uploaduserinfo = functions.https.onRequest((request, response) => {
+//     cors(request, response, () => {
+//         // response.set('Access-Control-Allow-Origin', 'http://127.0.0.1:5008/Register.html');
+//         response.set('Access-Control-Allow-Origin', '*');
+//         // Allowing all re
+//         response.set('Access-Control-Allow-Methods', 'GET, POST');
+//         response.set('Access-Control-Allow-Headers', 'Content-Type');
+//         return admin.firestore().collection('UserData').add(request.body).then((snapshot) => {
+//             response.send("Saved in the database");
+//         });
+//     });
+// });
+
+//
+// exports.getUserData = functions.https.onCall((data, context) => {
+//     const uid = context.auth.uid;
+//     return admin.auth().getUser(uid)
+//         .then((userRecord) => {
+//             console.log('User data:', userRecord.toJSON());
+//             return { data: userRecord.toJSON() };
+//         })
+//         .catch((error) => {
+//             console.error('Error fetching user data:', error);
+//             throw new functions.https.HttpsError('internal', 'Error fetching user data');
+//         });
+// });
 
 // // Retrieves data from database, forms it and send its back to http request
 // exports.searchMovie = functions.https.onRequest((request, response) => {
@@ -78,15 +115,6 @@ exports.getUserData = functions.https.onCall((data, context) => {
 //     });
 // });
 
-exports.uploaduserinfo = functions.https.onRequest((request, response) => {
-    cors(request, response, () => {
-
-        return admin.firestore().collection('UserData').add(request.body).then((snapshot) => {
-            response.send("Saved in the database");
-        });
-    });
-});
-
 // exports.getusers = functions.https.onRequest((request, response) => {
 //     cors(request, response, () => {
 //         // 1. Connect to our Firestore database
@@ -132,3 +160,4 @@ exports.uploaduserinfo = functions.https.onRequest((request, response) => {
 //
 //
 //
+

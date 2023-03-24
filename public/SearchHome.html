@@ -26,7 +26,10 @@
             src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ4JTIyJTNBMC45NDUyNDc2ODU1MTA5MjQ0JTJDJTIydyUyMiUzQTE5MjAlMkMlMjJoJTIyJTNBMTA4MCUyQyUyMmolMjIlM0E5NzYlMkMlMjJlJTIyJTNBMTY3OSUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRmV0YyUyRnNlYXJjaGYlMkZjb2xvcmxpYi1zZWFyY2gtMTAlMkYlMjIlMkMlMjJyJTIyJTNBJTIyJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQTAlMkMlMjJxJTIyJTNBJTVCJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIwJTIyJTJDJTIyY29uZmlnJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIxJTIyJTJDJTIyVUEtMjM1ODE1NjgtMTMlMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlNUQlN0Q="></script>
 
 
+    <script src="firebase-config.js"></script>
     <script src="/js/logout.js"></script>
+    <script src="/js/Search.js"></script>
+    <script src="/js/Generate.js"></script>
 
     <header class="masthead text-center text-white">
         <div class="masthead-content">
@@ -43,10 +46,14 @@
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
+                                    <a class="nav-link" href="/SearchHome.html"> Search</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="/UserPage.html"> Account</a>
                                 </li>
                                 <li class="nav-item">
-                                    <button class="btn-search" onclick="logout()">Logout</button>
+                                    <a class="nav-link" href="#" onclick="logout()">Logout</a>
+<!--                                    <button class="btn-search" onclick="logout()">Logout</button>-->
                                 </li>
                             </ul>
                         </div>
@@ -62,7 +69,7 @@
         <div class="inner-form">
             <div class="basic-search">
                 <div class="input-field">
-                    <input id="searchName" name="searchName" type="text" placeholder="Search: ">
+                    <input id="searchTerm" name="searchTerm" type="text" placeholder="Search: ">
                     <div class="icon-wrap">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
@@ -71,15 +78,17 @@
                 </div>
             </div>
             <div class="row third">
-                <div class="input-field">
+                <div class="input-field buttons">
                     <div class="group-btn">
-                        <form action="/test/" method="post">
-                            <button class="btn-search" type="submit" id="searchInput">SEARCH</button>
-                        </form>
+                        <button class="btn-search" type="button" id="searchInput" onclick="searchMovies()">SEARCH</button>
+                        <button class="btn-search" type="button" id="generate" onclick="switchToGenerateMoviesPage()">GENERATE</button>
                     </div>
                 </div>
             </div>
-            <div class="container">
+
+
+<!--            <div class="searchResults"></div>-->
+            <div class="container searchResults generated">
                 <div class="row">
                     <div class="col-12">
                         <div class="frames-container">
@@ -131,5 +140,25 @@
 <!--        data-cf-beacon="{&quot;rayId&quot;:&quot;79d9dd7a4c7860ce&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2023.2.0&quot;,&quot;si&quot;:100}"-->
 <!--        crossorigin="anonymous">-->
 <!--</script>-->
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="/__/firebase/8.4.2/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="/__/firebase/8.4.2/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="/__/firebase/8.4.2/firebase-auth.js"></script>
+<script src="/__/firebase/8.4.2/firebase-firestore.js"></script>
+
+<!--   Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<!--  <script src="/__/firebase/init.js?useEmulator=true"></script>-->
+
+<!-- Bootstrap core JavaScript -->
+<script src="jquery/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
 </body>
 </html>

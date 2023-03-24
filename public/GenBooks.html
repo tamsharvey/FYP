@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Generate</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="colorlib.com">
+  <link href="/css/SearchHome.css" rel="stylesheet">
+  <link href="/css/Gen.css" rel="stylesheet">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"
+          nonce="f30d252b-c13c-49d1-9e03-5cae290255ca"></script>
+  <script defer="" referrerpolicy="origin"
+          src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ4JTIyJTNBMC45NDUyNDc2ODU1MTA5MjQ0JTJDJTIydyUyMiUzQTE5MjAlMkMlMjJoJTIyJTNBMTA4MCUyQyUyMmolMjIlM0E5NzYlMkMlMjJlJTIyJTNBMTY3OSUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRmV0YyUyRnNlYXJjaGYlMkZjb2xvcmxpYi1zZWFyY2gtMTAlMkYlMjIlMkMlMjJyJTIyJTNBJTIyJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQTAlMkMlMjJxJTIyJTNBJTVCJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIwJTIyJTJDJTIyY29uZmlnJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIxJTIyJTJDJTIyVUEtMjM1ODE1NjgtMTMlMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlNUQlN0Q="></script>
+
+
+  <script src="firebase-config.js"></script>
+  <script src="/js/logout.js"></script>
+  <script src="/js/Generate.js"></script>
+
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+          <div class="container">
+            <a class="navbar-brand" href="#">RateIT</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/SearchHome.html"> Search</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Generate.html"> Generate</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/UserPage.html"> Account</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="logout()">Logout</a>
+                  <!--                                    <button class="btn-search" onclick="logout()">Logout</button>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+</head>
+<body>
+<div class="s010">
+  <form class="searchForm">
+    <div class="inner-form">
+      <div class="row third">
+        Would you like to generate movies or books?
+        <div class="input-field buttons">
+          <div class="group-btn">
+            <a class="btn-search" href="./GenMovies.html">Movies</a>
+            <a class="btn-search" href="./GenBooks.html">Books</a>
+          </div>
+        </div>
+      </div>
+      Select a subject and click generate
+      <div>
+        <label for="subject">Select a subject:</label>
+        <select id="subject" name="subject">
+          <option value="">Choose a subject</option>
+          <option value="art">Art</option>
+          <option value="biography">Biography</option>
+          <option value="business">Business</option>
+          <option value="comics">Comics</option>
+          <option value="cooking">Cooking</option>
+          <option value="crafts">Crafts</option>
+          <option value="education">Education</option>
+          <option value="fiction">Fiction</option>
+          <option value="health">Health</option>
+          <option value="history">History</option>
+          <option value="mystery">Mystery</option>
+          <option value="poetry">Poetry</option>
+          <option value="religion">Religion</option>
+          <option value="science">Science</option>
+          <option value="self-help">Self-help</option>
+          <option value="travel">Travel</option>
+        </select>
+
+        <button class="btn-search" type="button" id="searchInput" onclick="GenBooks()">Generate</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="book-list"></div>
+
+
+
+
+
+<!--<script>-->
+<!--    // Selecting the iframe element-->
+<!--    const a = document.getElementById("movie");-->
+<!--    const b = document.getElementById("book");-->
+
+<!--    // Adjusting the iframe height onload event-->
+<!--    a.onload, b.onload = function() {-->
+<!--        a.style.height = a.contentWindow.document.body.scrollHeight + 'px';-->
+<!--        b.style.height = b.contentWindow.document.body.scrollHeight + 'px';-->
+<!--    }-->
+<!--</script>-->
+
+<!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>-->
+<!--<script>-->
+<!--    // Tracking code on webpage - Google Tag Manager-->
+<!--    window.dataLayer = window.dataLayer || [];-->
+
+<!--    function gtag() {-->
+<!--        dataLayer.push(arguments);-->
+<!--    }-->
+
+<!--    gtag('js', new Date());-->
+
+<!--    gtag('config', 'UA-23581568-13');-->
+<!--</script>-->
+<!--<script defer=""-->
+<!--        src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"-->
+<!--        integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="-->
+<!--        data-cf-beacon="{&quot;rayId&quot;:&quot;79d9dd7a4c7860ce&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2023.2.0&quot;,&quot;si&quot;:100}"-->
+<!--        crossorigin="anonymous">-->
+<!--</script>-->
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="/__/firebase/8.4.2/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="/__/firebase/8.4.2/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="/__/firebase/8.4.2/firebase-auth.js"></script>
+<script src="/__/firebase/8.4.2/firebase-firestore.js"></script>
+
+<!--   Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<!--  <script src="/__/firebase/init.js?useEmulator=true"></script>-->
+
+<!-- Bootstrap core JavaScript -->
+<script src="jquery/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+</body>
+</html>

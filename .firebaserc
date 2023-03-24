@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "finalyearproject-837f4"
-  }
+    "default": "finalyearproject-837f4",
+    "fyp": "finalyearproject-837f4"
+  },
+  "targets": {},
+  "etags": {}
 }
