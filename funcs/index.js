@@ -1,25 +1,25 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyCyEbtegGBSKBrX91PLT_fqEPuaJHY3fCk",
-    authDomain: "finalyearproject-837f4.firebaseapp.com",
-    databaseURL: "https://finalyearproject-837f4-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "finalyearproject-837f4",
-    storageBucket: "finalyearproject-837f4.appspot.com",
-    messagingSenderId: "332274706767",
-    appId: "1:332274706767:web:8b13dd202dff70919abd3a",
-    measurementId: "G-CJBQP402TJ"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCyEbtegGBSKBrX91PLT_fqEPuaJHY3fCk",
+//     authDomain: "finalyearproject-837f4.firebaseapp.com",
+//     databaseURL: "https://finalyearproject-837f4-default-rtdb.europe-west1.firebasedatabase.app",
+//     projectId: "finalyearproject-837f4",
+//     storageBucket: "finalyearproject-837f4.appspot.com",
+//     messagingSenderId: "332274706767",
+//     appId: "1:332274706767:web:8b13dd202dff70919abd3a",
+//     measurementId: "G-CJBQP402TJ"
+// };
+//
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
 
 
 // Import the functions you need from the SDKs you need
 
-// const functions = require('firebase-functions');
-// const admin = require('firebase-admin');
-// const cors = require('cors')({origin: true});
-//
-// admin.initializeApp();
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+const cors = require('cors')({origin: true});
+
+admin.initializeApp();
 
 // const allowedOrigins = ['https://finalyearproject-837f4.web.app'];
 // const corsOptions = {
