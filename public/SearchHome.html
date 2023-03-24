@@ -29,6 +29,7 @@
     <script src="firebase-config.js"></script>
     <script src="/js/logout.js"></script>
     <script src="/js/Search.js"></script>
+    <script src="/js/Generate.js"></script>
 
     <header class="masthead text-center text-white">
         <div class="masthead-content">
@@ -45,7 +46,10 @@
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/SearchHome.html"> Home</a>
+                                    <a class="nav-link" href="/SearchHome.html"> Search</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Generate.html"> Generate</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/UserPage.html"> Account</a>
@@ -76,6 +80,7 @@
                     </div>
                 </div>
             </div>
+            <div class="filters">
             <div>
                 <label for="genreFilter">Filter by genre:</label>
                 <select id="genreFilter" name="genreFilter">
@@ -107,17 +112,20 @@
                     <option value="movie_tvshow">Movies or Tv Shows</option>
                     <option value="book">Books</option>
                 </select>
-
+            </div>
             </div>
             <div class="row third">
-                <div class="input-field">
+                <div class="input-field buttons">
                     <div class="group-btn">
                         <button class="btn-search" type="button" id="searchInput" onclick="searchMovies()">SEARCH</button>
+                        <button class="btn-search" type="button" id="generate" onclick="switchToGenerateMoviesPage()">GENERATE</button>
                     </div>
                 </div>
             </div>
+
+
 <!--            <div class="searchResults"></div>-->
-            <div class="container searchResults">
+            <div class="container searchResults generated">
                 <div class="row">
                     <div class="col-12">
                         <div class="frames-container">

@@ -3,7 +3,7 @@ const IMGPATH = "https://image.tmdb.org/t/p/w300";
 function searchMovies(searchTerm, mediaType) {
     const searchT = document.getElementById('searchTerm').value;
     const media = document.getElementById('mediaType').value;
-    const movieApiUrl = `https://api.themoviedb.org/3/search/movie?api_key=53c1020b3a0e7aeb482d50f68918374e&language=en&query=${searchT}`;
+    let movieApiUrl = `https://api.themoviedb.org/3/search/movie?api_key=53c1020b3a0e7aeb482d50f68918374e&language=en&query=${searchT}`;
     const bookApiUrl = `https://www.googleapis.com/books/v1/volumes?q=${searchT}`;
 
     const db = firebase.firestore();
@@ -15,6 +15,7 @@ function searchMovies(searchTerm, mediaType) {
     const searchResultsDiv = document.querySelector('.searchResults');
 
     if (media === "movie_tvshow" || media === "both") {
+
         fetch(movieApiUrl)
             .then(response => response.json())
             .then(data => {
@@ -157,4 +158,8 @@ function searchMovies(searchTerm, mediaType) {
                 console.log(errorMessage, errorCode);
             });
     }
+}
+
+function switchToGenerateMoviesPage() {
+    window.location.href = "./GenMovies.html";
 }

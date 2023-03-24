@@ -4,6 +4,8 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
+
+
   /* 2 */
 }
 
@@ -474,6 +476,7 @@ cont {
   background: #efdce0;;
   font-family: 'Lato', sans-serif;
   padding: 15px;
+  margin: 0 auto;
 }
 
 .s010 form {
@@ -483,11 +486,11 @@ cont {
 
 }
 
-.inner-form {
-  background-color: #efdce0;
-  width: 100% !important;
-  max-width: 100% !important;
-}
+/*.inner-form {*/
+/*  background-color: #efdce0;*/
+/*  width: 100% !important;*/
+/*  max-width: 100% !important;*/
+/*}*/
 
 .s010 form .inner-form {
   width: 100%;
@@ -581,19 +584,33 @@ cont {
   width: 150px;
 }
 
+.filters {
+  overflow: hidden;
+  margin-bottom: 15px;
+  width: 50%;
+  transform: translateX(59%);
+}
+
+.buttons {
+  overflow: hidden;
+  margin-bottom: 15px;
+  width: 50%;
+  transform: translateX(-8%);
+}
+
 .s010 form .inner-form .basic-search {
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   border-radius: 34px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   margin-top: 45px;
   width: 50%;
-  /*position: center;*/
+  transform: translateX(50%);
 }
 
 .s010 form .inner-form .basic-search .input-field {
   width: 100%;
-  /*position: relative;*/
+  position: relative;
 }
 
 .s010 form .inner-form .basic-search .input-field input {
