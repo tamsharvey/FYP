@@ -14,7 +14,7 @@ function searchMovies(searchTerm, mediaType) {
     // Get reference to searchResults div
     const searchResultsDiv = document.querySelector('.searchResults');
 
-    if (media === "movie_tvshow" || media === "both") {
+    if (media === "movie" || media === "both") {
 
         fetch(movieApiUrl)
             .then(response => response.json())
@@ -61,24 +61,27 @@ function searchMovies(searchTerm, mediaType) {
                     overviewTextEl.textContent = overview;
                     overviewEl.appendChild(overviewTextEl);
 
+                    const addButton = document.querySelector(".addToMyListButton");
+                    addButton.addEventListener("click", () => {
+                        // Create a new object with the book data
+                        const bookData = {
+                            title: bookInfo.title,
+                            author: bookInfo.author,
+                            description: bookInfo.description,
+                            img: img
+                        };
+
+                        // Add the book to the user's list (you will need to implement this on the server side)
+                        addToList(bookData);
+                    });
+                    overviewEl.appendChild(addButton);
+
                     movieEl.appendChild(overviewEl);
 
                     // Append movieEl to searchResultsDiv
                     searchResultsDiv.appendChild(movieEl);
 
-                    // Add movie to Firestore database
-                    db.collection("Movies").add({
-                        title: movie.title,
-                        release_date: movie.release_date,
-                        poster_path: movie.poster_path,
-                        overview: movie.overview
-                    })
-                        .then(docRef => {
-                            console.log("Movie added with ID: ", docRef.id);
-                        })
-                        .catch(error => {
-                            console.error("Error adding movie: ", error);
-                        });
+
                 });
 
             })
@@ -163,3 +166,4 @@ function searchMovies(searchTerm, mediaType) {
 function switchToGenerateMoviesPage() {
     window.location.href = "./GenMovies.html";
 }
+
