@@ -5,6 +5,8 @@ const IMGPATH = "https://image.tmdb.org/t/p/w300";
 // const addMovieFunction = firebase.functions().httpsCallable('addMovie');
 //
 
+
+import { addDataToFirestore } from './Search.js';
 const main = document.getElementById("content");
 
 // initially get fav movies
@@ -80,7 +82,7 @@ function showMovies(movies) {
                 img: poster_path
             }
 
-            addMovieFunction(movieData)
+            addDataToFirestore(movieData)
                 .then(result => {
                     console.log('Movie added to user\'s list with ID:', result.data.id);
                 })

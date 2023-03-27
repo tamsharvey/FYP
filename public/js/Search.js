@@ -1,3 +1,6 @@
+window.addDataToFirestore();
+import { addDataToFirestore } from './addToList.js';
+
 const IMGPATH = "https://image.tmdb.org/t/p/w300";
 
 function searchMovies(searchTerm, mediaType) {
@@ -63,25 +66,24 @@ function searchMovies(searchTerm, mediaType) {
 
                     const addButton = document.querySelector(".addToMyListButton");
                     addButton.addEventListener("click", () => {
-                        // Create a new object with the book data
-                        const bookData = {
-                            title: bookInfo.title,
-                            author: bookInfo.author,
-                            description: bookInfo.description,
-                            img: img
+                        // Create a new object with the movie data
+                        const movieData = {
+                            title: title,
+                            release_date: release_date,
+                            overview: overview,
+                            poster_path: poster_path
                         };
 
-                        // Add the book to the user's list (you will need to implement this on the server side)
-                        addToList(bookData);
+                        // Add the movie to the user's list (you will need to implement this on the server side)
+                        addDataToFirestore(movieData);
                     });
+
                     overviewEl.appendChild(addButton);
 
                     movieEl.appendChild(overviewEl);
 
                     // Append movieEl to searchResultsDiv
                     searchResultsDiv.appendChild(movieEl);
-
-
                 });
 
             })
@@ -138,20 +140,20 @@ function searchMovies(searchTerm, mediaType) {
                     // Append bookEl to searchResultsDiv
                     searchResultsDiv.appendChild(bookEl);
 
-                    // Add book to Firestore database
-                    db.collection("Books").add({
-                        title: title,
-                        authors: book.volumeInfo.authors,
-                        publishedDate: book.volumeInfo.publishedDate,
-                        description: description,
-                        thumbnailUrl: imageLinks.thumbnail
-                    })
-                        .then(docRef => {
-                            console.log("Book added with ID: ", docRef.id);
-                        })
-                        .catch(error => {
-                            console.error("Error adding book: ", error);
-                        });
+                    // // Add book to Firestore database
+                    // db.collection("Books").add({
+                    //     title: title,
+                    //     authors: book.volumeInfo.authors,
+                    //     publishedDate: book.volumeInfo.publishedDate,
+                    //     description: description,
+                    //     thumbnailUrl: imageLinks.thumbnail
+                    // })
+                    //     .then(docRef => {
+                    //         console.log("Book added with ID: ", docRef.id);
+                    //     })
+                    //     .catch(error => {
+                    //         console.error("Error adding book: ", error);
+                    //     });
                 });
 
             })
@@ -166,4 +168,3 @@ function searchMovies(searchTerm, mediaType) {
 function switchToGenerateMoviesPage() {
     window.location.href = "./GenMovies.html";
 }
-

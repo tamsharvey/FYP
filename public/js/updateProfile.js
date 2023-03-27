@@ -64,31 +64,35 @@ function update() {
                         // Update the user data in Firestore
                         return userDataRef.update({
                             displayName: displayName,
-                            email: email
+                            Email: email
                         });
                     }).then(() => {
+                        // Updating email
+                        alert("User profile updated successfully!");
                         console.log("User profile updated successfully! 1");
+                        window.location.href = '../UserPage.html';
                     }).catch((error) => {
-                        console.error("Error updating user email:", error);
+                        console.error("Error updating user email1:", error);
                     });
                 } else {
                     // Update the user data in Firestore
                     return userDataRef.update({
                         displayName: displayName,
-                        email: email
+                        Email: email
                     }).then(() => {
+                        // Updating display name
                         console.log("User profile updated successfully! 2");
                         window.location.href = '../UserPage.html';
 
                     }).catch((error) => {
-                        console.error("Error updating user profile:", error);
-                        alert("Error updating user profile.");
+                        console.error("Error updating user profile2:", error);
+                        alert("Error updating user profile1.");
                         return;
                     });
                 }
             }).catch((error) => {
-                console.error("Error updating user profile:", error);
-                alert("Error updating user profile.");
+                console.error("Error updating user profile3:", error);
+                alert("Error updating user profile2.");
                 return;
             });
         }

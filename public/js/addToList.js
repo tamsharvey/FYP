@@ -1,30 +1,34 @@
-function addDataToFirestore() {
-    // Get the current user
-    const user = firebase.auth().currentUser;
-    if (user) {
-        // Get the user's ID
-        const userId = user.uid;
+function addDataToFirestore(data) {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            const uid = user.uid;
+            const db = firebase.firestore();
+            const userDataRef = db.collection("UserData").doc(uid);
 
-        // Get a reference to the Firestore collection
-        const db = firebase.firestore();
-        const userDataRef = db.collection("UserData");
-
-        // Get the data you want to add
-        const data = {
-            field1: "value1",
-            field2: "value2",
-            userId: userId
-        };
-
-        // Add the data to the Firestore collection
-        userDataRef.add(data)
-            .then(() => {
-                console.log("Data added to Firestore!");
-            })
-            .catch((error) => {
-                console.error("Error adding data to Firestore: ", error);
+            userDataRef.get().then((doc) => {
+                if (doc.exists) {
+                    document.getElementById("userDisplayName").value = doc.data().displayName;
+                    document.getElementById("userEmail").value = doc.data().email;
+                } else {
+                    console.log("No such document!");
+                }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
             });
-    } else {
-        console.error("User not logged in.");
-    }
+
+            // Call the function to add data to Firestore
+            db.collection("Movies").add(data)
+                .then(docRef => {
+                    console.log("Movie added with ID: ", docRef.id);
+                })
+                .catch(error => {
+                    console.error("Error adding movie: ", error);
+                });
+
+        } else {
+            // User is signed out.
+            // ...
+        }
+    });
 }
