@@ -12,8 +12,8 @@ function disp() {
                     if (doc.exists) {
                         // document.getElementById("userDisplayName").innerHTML = data.displayName;
                         // document.getElementById("userEmail").innerHTML = data.email;
-                        document.getElementById("userDisplayName").innerHTML = user.displayName;
-                        document.getElementById("userEmail").innerHTML = user.email;
+                        document.getElementById("newDisplayName").value = user.displayName;
+                        document.getElementById("newEmail").value = user.email;
                     } else {
                         console.log("No such document!");
                     }
