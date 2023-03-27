@@ -10,11 +10,10 @@ function disp() {
                 .get()
                 .then((doc) => {
                     if (doc.exists) {
-                        const data = doc.data();
-                        document.getElementById("userDisplayName").innerHTML = data.displayName;
-                        document.getElementById("userEmail").innerHTML = data.email;
-                        document.getElementById("newDisplayName").value = data.displayName;
-                        document.getElementById("newEmail").value = data.email;
+                        // document.getElementById("userDisplayName").innerHTML = data.displayName;
+                        // document.getElementById("userEmail").innerHTML = data.email;
+                        document.getElementById("userDisplayName").innerHTML = user.displayName;
+                        document.getElementById("userEmail").innerHTML = user.email;
                     } else {
                         console.log("No such document!");
                     }

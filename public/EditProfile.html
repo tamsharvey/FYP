@@ -61,95 +61,77 @@
   <div class="row">
     <div class="col-12">
       <!-- Page title -->
-      <div class="my-5">
-        <h3>My Profile</h3>
-        <hr>
+      <div class="row my-5">
+        <div class="col-md-4">
+          <h3 >My Profile</h3>
+        </div>
+        <div class="col-md-8 d-flex justify-content-end">
+          <button type="button" class="btn-search btn-danger-soft mx-2" onclick="confirmDeleteUser()">Delete profile</button>
+          <button type="button" class="btn-search btn-danger-soft mx-2" onclick="cancel()">Cancel</button>
+        </div>
       </div>
+      <hr>
       <!-- Form START -->
       <form class="file-upload">
         <div class="row mb-5 gx-5">
           <!-- Contact detail -->
-          <div class="col-xxl-8 mb-5 mb-xxl-0">
-            <h4 class="mb-4 mt-0">Contact detail</h4>
+          <div class="col-xl-6">
+            <h4 class="col-md-6">Contact detail</h4>
             <div class="bg-secondary-soft px-4 py-5 rounded">
               <div class="row g-3">
-
                 <!-- Display Name -->
                 <div class="col-md-6">
                   <label class="form-label" for="newDisplayName">Name *</label>
-                  <p id="userDisplayName"></p>
                   <input type="text" class="form-control" id="newDisplayName">
                 </div>
                 <!-- Email -->
                 <div class="col-md-6">
                   <label for="newEmail" class="form-label">Email *</label>
-                  <p id="userEmail"></p>
                   <input type="newEmail" class="form-control" id="newEmail">
                 </div>
             </div>
-          </div>
-          <!-- Upload profile -->
-          <div class="col-xxl-4">
-            <h4 class="mb-4 mt-0">Upload your profile photo</h4>
-            <div class="bg-secondary-soft px-4 py-5 rounded">
-              <div class="row g-3">
-                <div class="text-center">
-                  <!-- Image upload -->
-                  <div class="square position-relative display-2 mb-3">
-                    <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-                  </div>
-                  <!-- Button -->
-                  <input type="file" id="customFile" name="file" hidden="">
-                  <button class="btn-search btn-success-soft" for="customFile">Upload</button>
-                  <button type="button" class="btn-search btn-danger-soft">Remove</button>
-                  <!-- Content -->
-                  <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+              <br>
+              <div class="submit">
+                <div class="gap-5 d-md-flex justify-content-md-end text-center">
+                   <button type="button" class="btn-search btn-danger-soft" onclick="update()">Update profile</button>
                 </div>
               </div>
-            </div>
           </div>
-        </div> <!-- Row END -->
-          <div class="submit">
-            <div class="gap-5 d-md-flex justify-content-md-end text-center">
-              <button type="button" class="btn-search btn-danger-soft" onclick="confirmDeleteUser()">Delete profile</button>
-              <button type="button" class="btn-search btn-danger-soft" onclick="update()">Update profile</button>
-              <button type="button" class="btn-search btn-danger-soft" onclick="cancel()">Cancel</button>
-            </div>
-          </div>
+        </div>
+          <!-- Row END -->
 
           <!-- change password -->
-          <div class="col-xxl-6">
+          <div class="col-xl-6">
             <h4 class="col-md-6">Change Password</h4>
             <div class="bg-secondary-soft px-4 py-5 rounded">
-              <div class="row g-3">
-                <!-- Old password -->
+                <!-- Old Password -->
                 <div class="col-md-6">
                   <label for="currentPassword" class="form-label">Old password *</label>
                   <input type="password" class="form-control" id="currentPassword">
                 </div>
-                <div class="col-md-6">
+
+                <!-- New Password and Confirm Password -->
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="newPassword1" class="form-label">New password *</label>
+                      <input type="password" class="form-control" id="newPassword1">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="newPassword2" class="form-label">Confirm Password *</label>
+                      <input type="password" class="form-control" id="newPassword2">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="submit">
+                    <div class="gap-5 d-md-flex justify-content-md-end text-center">
+                      <button type="button" class="btn-search btn-danger-soft" onclick="changePassword()">Change Password</button>
+                    </div>
+                  </div>
                 </div>
-                <!-- New password -->
-                <div class="col-md-6">
-                  <label for="newPassword1" class="form-label">New password *</label>
-                  <input type="password" class="form-control" id="newPassword1">
-                </div>
-                <!-- Confirm password -->
-                <div class="col-md-6">
-                  <label for="newPassword2" class="form-label">Confirm Password *</label>
-                  <input type="password" class="form-control" id="newPassword2">
                 </div>
               </div>
-            </div>
-          </div>
-        </div> <!-- Row END -->
-        <!-- button -->
-        <div class="submit">
-        <div class="gap-5 d-md-flex justify-content-md-end text-center">
-          <button type="button" class="btn-search btn-danger-soft" onclick="changePassword()">Change Password</button>
+      </form>
         </div>
-        </div>
-      </form> <!-- Form END -->
     </div>
   </div>
 </div>
