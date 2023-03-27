@@ -1,3 +1,14 @@
+// const admin = require('firebase-admin');
+// const serviceAccount = require('/Users/tamsinharvey/Documents/College/4th Year/FYP/App/public/json_files/finalyearproject-837f4-firebase-adminsdk-1b0y6-052089f376.json');
+//
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount),
+//     databaseURL: "https://finalyearproject-837f4-default-rtdb.europe-west1.firebasedatabase.app",
+//     storageBucket: "gs://finalyearproject-837f4.appspot.com"
+// });
+//
+
+
 // const firebaseConfig = {
 //     apiKey: "AIzaSyCyEbtegGBSKBrX91PLT_fqEPuaJHY3fCk",
 //     authDomain: "finalyearproject-837f4.firebaseapp.com",
@@ -14,12 +25,106 @@
 
 
 // Import the functions you need from the SDKs you need
-
-const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const cors = require('cors')({origin: true});
+const functions = require('firebase-functions');
 
 admin.initializeApp();
+
+exports.createUser = functions.auth.user().onCreate(async (user) => {
+
+    const uid = user.uid;
+    const email = user.email;
+    const displayName = user.displayName;
+
+    console.log(displayName);
+
+    // let firstName, lastName;
+
+    // if (displayName) {
+    //     const nameParts = displayName.split(" ");
+    //     firstName = nameParts[0];
+    //     lastName = nameParts[1];
+    //
+    // }
+    // else {
+    //     try {
+    //         const doc = await admin.firestore().collection('UserData').doc(uid).get();
+    //         if (doc.exists) {
+    //             firstName = doc.data().firstName;
+    //             lastName = doc.data().lastName;
+    //         } else {
+    //             console.log("No such document!");
+    //         }
+    //     } catch (error) {
+    //         console.log("Error getting document:", error);
+    //     }
+    // }
+
+    const userData = {
+        displayName: displayName || '',
+        Email: email || '',
+        UID: uid
+    };
+    try {
+        await admin.firestore().collection('UserData').doc(uid).set(userData);
+        console.log("User data added to Firestore");
+
+    } catch (error) {
+        console.log("Error adding user data to Firestore:", error);
+    }
+});
+
+// exports.addToMyList = functions.firestore
+//     .document('users/{userId}/list/{bookId}')
+//     .onCreate((snap, context) => {
+//         const bookData = snap.data();
+//         const userId = context.params.userId;
+//
+//         // Add the book to the user's list
+//         return admin.firestore().collection('users').doc(userId).update({
+//             list: admin.firestore.FieldValue.arrayUnion(bookData)
+//         });
+//     });
+//
+// exports.addMovie = functions.https.onCall((data, context) => {
+//     const { title, author, description, img } = data;
+//     const db = admin.firestore();
+//     const movieRef = db.collection('Movies').doc();
+//     return movieRef.set({ title, author, description, img, id: movieRef.id })
+//         .then(() => ({ id: movieRef.id }))
+//         .catch(error => {
+//             console.error('Error adding movie to database:', error);
+//             throw new functions.https.HttpsError('internal', 'Error adding movie to database');
+//         });
+// });
+
+// exports.addmovie = functions.https.onCall((data, context) => {
+//     // Get the current user ID
+//     const userId = context.auth.uid;
+//
+//     // Get a reference to the user document
+//     const userRef = admin.firestore().collection("Users").doc(userId);
+//
+//     // Add the movie data to the user's "movies" subcollection
+//     return userRef.collection("movies").add(data)
+//         .then((docRef) => {
+//             console.log("Movie added to user's list with ID:", docRef.id);
+//             return { message: "Movie added successfully" };
+//         })
+//         .catch((error) => {
+//             console.error("Error adding movie to user's list:", error);
+//             throw new functions.https.HttpsError("unknown", error.message);
+//         });
+// });
+// exports.createUser = functions.auth.user().onCreate((user) => {
+//     const userData = {
+//         firstName: request.body.firstName,
+//         lastName: request.body.lastName,
+//         email: user.email,
+//     };
+//
+//     return admin.firestore().collection('UserData').doc(user.uid).set(userData);
+// });
 
 // const allowedOrigins = ['https://finalyearproject-837f4.web.app'];
 // const corsOptions = {

@@ -78,6 +78,15 @@
                 </div>
             </div>
             <div class="row third">
+                <div class="center">
+                    <form>
+                        <select id="mediaType" name="mediaType">
+                            <option value="both">Movies and Books</option>
+                            <option value="movie">Movies</option>
+                            <option value="book">Books</option>
+                        </select>
+                    </form>
+                </div>
                 <div class="input-field buttons">
                     <div class="group-btn">
                         <button class="btn-search" type="button" id="searchInput" onclick="searchMovies()">SEARCH</button>
@@ -107,39 +116,6 @@
         </div>
     </form>
 </div>
-
-
-<!--<script>-->
-<!--    // Selecting the iframe element-->
-<!--    const a = document.getElementById("movie");-->
-<!--    const b = document.getElementById("book");-->
-
-<!--    // Adjusting the iframe height onload event-->
-<!--    a.onload, b.onload = function() {-->
-<!--        a.style.height = a.contentWindow.document.body.scrollHeight + 'px';-->
-<!--        b.style.height = b.contentWindow.document.body.scrollHeight + 'px';-->
-<!--    }-->
-<!--</script>-->
-
-<!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>-->
-<!--<script>-->
-<!--    // Tracking code on webpage - Google Tag Manager-->
-<!--    window.dataLayer = window.dataLayer || [];-->
-
-<!--    function gtag() {-->
-<!--        dataLayer.push(arguments);-->
-<!--    }-->
-
-<!--    gtag('js', new Date());-->
-
-<!--    gtag('config', 'UA-23581568-13');-->
-<!--</script>-->
-<!--<script defer=""-->
-<!--        src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"-->
-<!--        integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="-->
-<!--        data-cf-beacon="{&quot;rayId&quot;:&quot;79d9dd7a4c7860ce&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2023.2.0&quot;,&quot;si&quot;:100}"-->
-<!--        crossorigin="anonymous">-->
-<!--</script>-->
 
 <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 

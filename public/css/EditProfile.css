@@ -92,3 +92,8 @@ body{margin-top:20px;
 .submit{
     padding-bottom: 25px;
 }
+
+.col-md-4 {
+    display: flex;
+    align-items: center;
+}

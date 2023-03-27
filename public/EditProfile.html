@@ -20,6 +20,9 @@
           src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ4JTIyJTNBMC45NDUyNDc2ODU1MTA5MjQ0JTJDJTIydyUyMiUzQTE5MjAlMkMlMjJoJTIyJTNBMTA4MCUyQyUyMmolMjIlM0E5NzYlMkMlMjJlJTIyJTNBMTY3OSUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRmV0YyUyRnNlYXJjaGYlMkZjb2xvcmxpYi1zZWFyY2gtMTAlMkYlMjIlMkMlMjJyJTIyJTNBJTIyJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQTAlMkMlMjJxJTIyJTNBJTVCJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIwJTIyJTJDJTIyY29uZmlnJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIxJTIyJTJDJTIyVUEtMjM1ODE1NjgtMTMlMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlNUQlN0Q="></script>
 
   <script src="js/Delete.js" ></script>
+  <script src="js/logout.js" ></script>
+  <script src="js/updateProfile.js" ></script>
+  <script src="js/cngPass.js" ></script>
 
   <header class="masthead text-center text-white">
     <div class="masthead-content">
@@ -36,13 +39,13 @@
             <div class="collapse navbar-collapse" id="navbar">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/SearchHome.html">Movies</a>
+                  <a class="nav-link" href="/SearchHome.html">Search</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/SearchHome.html">Books</a>
+                  <a class="nav-link" href="/GenMovies.html">Generate</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/SearchHome.html">Music</a>
+                  <a class="nav-link" href="#" onclick="logout()">Logout</a>
                 </li>
               </ul>
             </div>
@@ -58,105 +61,96 @@
   <div class="row">
     <div class="col-12">
       <!-- Page title -->
-      <div class="my-5">
-        <h3>My Profile</h3>
-        <hr>
+      <div class="row my-5">
+        <div class="col-md-4">
+          <h3 >My Profile</h3>
+        </div>
+        <div class="col-md-8 d-flex justify-content-end">
+          <button type="button" class="btn-search btn-danger-soft mx-2" onclick="confirmDeleteUser()">Delete profile</button>
+          <button type="button" class="btn-search btn-danger-soft mx-2" onclick="cancel()">Cancel</button>
+        </div>
       </div>
+      <hr>
       <!-- Form START -->
       <form class="file-upload">
         <div class="row mb-5 gx-5">
           <!-- Contact detail -->
-          <div class="col-xxl-8 mb-5 mb-xxl-0">
-            <h4 class="mb-4 mt-0">Contact detail</h4>
+          <div class="col-xl-6">
+            <h4 class="col-md-6">Contact detail</h4>
             <div class="bg-secondary-soft px-4 py-5 rounded">
               <div class="row g-3">
-
-                <!-- First Name -->
+                <!-- Display Name -->
                 <div class="col-md-6">
-                  <label class="form-label">First Name *</label>
-                  <input type="text" class="form-control" placeholder="" aria-label="First name" value="Scaralet">
-                </div>
-                <!-- Last name -->
-                <div class="col-md-6">
-                  <label class="form-label">Last Name *</label>
-                  <input type="text" class="form-control" placeholder="" aria-label="Last name" value="Doe">
-                </div>
-                <!-- Phone number -->
-                <div class="col-md-6">
-                  <label class="form-label">Phone number *</label>
-                  <input type="text" class="form-control" placeholder="" aria-label="Phone number" value="(333) 000 555">
-                </div>
-                <!-- Mobile number -->
-                <div class="col-md-6">
-                  <label class="form-label">Mobile number *</label>
-                  <input type="text" class="form-control" placeholder="" aria-label="Phone number" value="+91 9852 8855 252">
+                  <label class="form-label" for="newDisplayName">Name *</label>
+                  <input type="text" class="form-control" id="newDisplayName">
                 </div>
                 <!-- Email -->
                 <div class="col-md-6">
-                  <label for="inputEmail4" class="form-label">Email *</label>
-                  <input type="email" class="form-control" id="inputEmail4" value="example@homerealty.com">
+                  <label for="newEmail" class="form-label">Email *</label>
+                  <input type="newEmail" class="form-control" id="newEmail">
                 </div>
             </div>
-          </div>
-          <!-- Upload profile -->
-          <div class="col-xxl-4">
-            <h4 class="mb-4 mt-0">Upload your profile photo</h4>
-            <div class="bg-secondary-soft px-4 py-5 rounded">
-              <div class="row g-3">
-                <div class="text-center">
-                  <!-- Image upload -->
-                  <div class="square position-relative display-2 mb-3">
-                    <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-                  </div>
-                  <!-- Button -->
-                  <input type="file" id="customFile" name="file" hidden="">
-                  <button class="btn-search btn-success-soft" for="customFile">Upload</button>
-                  <button type="button" class="btn-search btn-danger-soft">Remove</button>
-                  <!-- Content -->
-                  <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+              <br>
+              <div class="submit">
+                <div class="gap-5 d-md-flex justify-content-md-end text-center">
+                   <button type="button" class="btn-search btn-danger-soft" onclick="update()">Update profile</button>
                 </div>
               </div>
-            </div>
           </div>
-        </div> <!-- Row END -->
+        </div>
+          <!-- Row END -->
 
           <!-- change password -->
-          <div class="col-xxl-6">
+          <div class="col-xl-6">
             <h4 class="col-md-6">Change Password</h4>
             <div class="bg-secondary-soft px-4 py-5 rounded">
-              <div class="row g-3">
-                <!-- Old password -->
+                <!-- Old Password -->
                 <div class="col-md-6">
-                  <label for="exampleInputPassword1" class="form-label">Old password *</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <label for="currentPassword" class="form-label">Old password *</label>
+                  <input type="password" class="form-control" id="currentPassword">
                 </div>
-                <div class="col-md-6">
+
+                <!-- New Password and Confirm Password -->
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="newPassword1" class="form-label">New password *</label>
+                      <input type="password" class="form-control" id="newPassword1">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="newPassword2" class="form-label">Confirm Password *</label>
+                      <input type="password" class="form-control" id="newPassword2">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="submit">
+                    <div class="gap-5 d-md-flex justify-content-md-end text-center">
+                      <button type="button" class="btn-search btn-danger-soft" onclick="changePassword()">Change Password</button>
+                    </div>
+                  </div>
                 </div>
-                <!-- New password -->
-                <div class="col-md-6">
-                  <label for="exampleInputPassword2" class="form-label">New password *</label>
-                  <input type="password" class="form-control" id="exampleInputPassword2">
-                </div>
-                <!-- Confirm password -->
-                <div class="col-md-6">
-                  <label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
-                  <input type="password" class="form-control" id="exampleInputPassword3">
                 </div>
               </div>
-            </div>
-          </div>
-        </div> <!-- Row END -->
-        <!-- button -->
-        <div class="submit">
-        <div class="gap-5 d-md-flex justify-content-md-end text-center">
-          <button type="button" class="btn-search btn-danger-soft" onclick="DeleteUser()">Delete profile</button>
-          <button type="button" class="btn-search btn-danger-soft">Update profile</button>
+      </form>
         </div>
-        </div>
-      </form> <!-- Form END -->
     </div>
   </div>
 </div>
 </div>
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="/__/firebase/8.4.2/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="/__/firebase/8.4.2/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="/__/firebase/8.4.2/firebase-auth.js"></script>
+<script src="/__/firebase/8.4.2/firebase-firestore.js"></script>
+
+<!--   Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<!--  <script src="/__/firebase/init.js?useEmulator=true"></script>-->
 </body>
 </html>

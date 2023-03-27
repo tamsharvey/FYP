@@ -49,14 +49,10 @@
                   <a class="nav-link" href="/SearchHome.html"> Search</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/Generate.html"> Generate</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="/UserPage.html"> Account</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#" onclick="logout()">Logout</a>
-                  <!--                                    <button class="btn-search" onclick="logout()">Logout</button>-->
                 </li>
               </ul>
             </div>
@@ -71,17 +67,16 @@
   <form class="searchForm">
     <div class="inner-form">
       <div class="row third">
-        Would you like to generate movies or books?
         <div class="input-field buttons">
           <div class="group-btn">
-            <a class="btn-search" href="./GenMovies.html">Movies</a>
-            <a class="btn-search" href="./GenBooks.html">Books</a>
+            <button class="btn-search" type="button" id="genM" onclick="switchGenMovies()">Movies</button>
+            <button class="btn-search" type="button" id="genB" onclick="switchGenBooks()">Books</button>
           </div>
         </div>
       </div>
-      Select a subject and click generate
       <div>
-        <label for="subject">Select a subject:</label>
+        <div class="center">
+          <form>
         <select id="subject" name="subject">
           <option value="">Choose a subject</option>
           <option value="art">Art</option>
@@ -101,8 +96,13 @@
           <option value="self-help">Self-help</option>
           <option value="travel">Travel</option>
         </select>
-
-        <button class="btn-search" type="button" id="searchInput" onclick="GenBooks()">Generate</button>
+          </form>
+          <div class="input-field buttons">
+            <div class="group-btn genBtn">
+              <button class="btn-search" type="button" id="searchInput" onclick="GenBooks()">Generate</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </form>

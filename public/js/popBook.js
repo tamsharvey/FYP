@@ -38,20 +38,45 @@ async function showBooks(books) {
 
             columnEL.appendChild(bookEL);
 
+            const btnEL = document.createElement("div");
+            btnEL.classList.add("button-container");
+
+            const addToListButton = document.createElement("button");
+            addToListButton.classList.add("addToListButton");
+            addToListButton.textContent = "Add to List";
+
+            btnEL.appendChild(addToListButton);
+            columnEL.appendChild(bookEL);
+            columnEL.appendChild(btnEL);
+
             bookEL.innerHTML = `
-            <div class="rowB">
+              <div class="rowB">
                 <div class="columnB">
-                    <img src="${img}">
+                  <img src="${img}">
                 </div> 
                 <div class="columnB">
-                    <h3 class="title">${bookInfo.title} <br> By ${bookInfo.author}</h3>
-                     <div class="book-description">
-                        <div class="des">Description: </div>
-                         ${bookInfo.description}
-                     </div>
+                  <h3 class="title">${bookInfo.title} <br> By ${bookInfo.author}</h3>
+                  <div class="book-description">
+                    <div class="des">Description: </div>
+                    ${bookInfo.description}
+                  </div>
                 </div>
-            </div>
-        `;
+              </div>
+            `;
+
+            // const addButton = bookEL.querySelector(".addToMyListButton");
+            // addButton.addEventListener("click", () => {
+            //     // Create a new object with the book data
+            //     const bookData = {
+            //         title: bookInfo.title,
+            //         author: bookInfo.author,
+            //         description: bookInfo.description,
+            //         img: img
+            //     };
+            //
+            //     // Add the book to the user's list
+            //     add(bookData);
+            // });
 
             row.appendChild(columnEL);
         } catch (error) {
