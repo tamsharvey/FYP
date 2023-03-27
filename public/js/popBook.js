@@ -4,12 +4,6 @@ const API ="https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-
 const bMain = document.getElementById("content");
 const form = document.getElementById("bookForm");
 const search = document.getElementById("bookName");
-// const button = document.getElementById('myButton');
-//
-//
-// button.addEventListener('click', function() {
-//     addToList();
-// });
 
 // initially get fav movies
 NYTBooks(API);
@@ -80,8 +74,8 @@ async function showBooks(books) {
             //         img: img
             //     };
             //
-            //     // Add the book to the user's list (you will need to implement this on the server side)
-            //     addToList(bookData);
+            //     // Add the book to the user's list
+            //     add(bookData);
             // });
 
             row.appendChild(columnEL);

@@ -8,8 +8,6 @@
 	 <link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/SignIn_RegisterStyles.css" rel="stylesheet">
 
-
-
 </head>
     <body>
 	    <header class="masthead text-center text-white">
@@ -68,10 +66,6 @@
                       <label for="inputPassword2">Re-Enter Password</label>
 					</div>
 
-                    <img onclick="showPass()"
-                         src="https://media.geeksforgeeks.org/wp-content/uploads/20210917150049/eyeslash.png"
-                         id="showPassword" class="passwordShow">
-
                     <button onclick="register()" class="btn btn-lg btn-primary btn-block text-uppercase"  >Create an Account</button>
 
                     <hr class="my-4">
@@ -102,8 +96,9 @@
   <!-- Initialize Firebase -->
   <script src="/__/firebase/init.js?useEmulator=true"></script>
 
-  <script src="/js/register.js"></script>
-        <script src="/js/showPass.js"></script>
+        <script src="/js/firebase-config.js"></script>
+        <script src="/js/register.js"></script>
+        <script src="/js/index.js"></script>
 
 </body>
 </html>

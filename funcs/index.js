@@ -25,64 +25,97 @@
 
 
 // Import the functions you need from the SDKs you need
-
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 
 admin.initializeApp();
-const db = admin.firestore();
 
 exports.createUser = functions.auth.user().onCreate(async (user) => {
+
     const uid = user.uid;
     const email = user.email;
     const displayName = user.displayName;
-    let firstName, lastName;
-    console.log(displayName);
-    if (displayName) {
-        const nameParts = displayName.split(" ");
-        firstName = nameParts[0];
-        lastName = nameParts[1];
-    }
-    else {
-        try {
-            const doc = await admin.firestore().collection('UserData').doc(uid).get();
-            if (doc.exists) {
-                firstName = doc.data().firstName;
-                lastName = doc.data().lastName;
-            } else {
-                console.log("No such document!");
-            }
-        } catch (error) {
-            console.log("Error getting document:", error);
-        }
-    }
 
-    // Use the first name, last name, and email to create a new user document in Firestore
+    console.log(displayName);
+
+    // let firstName, lastName;
+
+    // if (displayName) {
+    //     const nameParts = displayName.split(" ");
+    //     firstName = nameParts[0];
+    //     lastName = nameParts[1];
+    //
+    // }
+    // else {
+    //     try {
+    //         const doc = await admin.firestore().collection('UserData').doc(uid).get();
+    //         if (doc.exists) {
+    //             firstName = doc.data().firstName;
+    //             lastName = doc.data().lastName;
+    //         } else {
+    //             console.log("No such document!");
+    //         }
+    //     } catch (error) {
+    //         console.log("Error getting document:", error);
+    //     }
+    // }
+
     const userData = {
-        firstName: firstName,
-        lastName: lastName,
-        email: email
+        displayName: displayName || '',
+        Email: email || '',
+        UID: uid
     };
     try {
         await admin.firestore().collection('UserData').doc(uid).set(userData);
         console.log("User data added to Firestore");
+
     } catch (error) {
         console.log("Error adding user data to Firestore:", error);
     }
 });
 
-exports.addToMyList = functions.firestore
-    .document('users/{userId}/list/{bookId}')
-    .onCreate((snap, context) => {
-        const bookData = snap.data();
-        const userId = context.params.userId;
+// exports.addToMyList = functions.firestore
+//     .document('users/{userId}/list/{bookId}')
+//     .onCreate((snap, context) => {
+//         const bookData = snap.data();
+//         const userId = context.params.userId;
+//
+//         // Add the book to the user's list
+//         return admin.firestore().collection('users').doc(userId).update({
+//             list: admin.firestore.FieldValue.arrayUnion(bookData)
+//         });
+//     });
+//
+// exports.addMovie = functions.https.onCall((data, context) => {
+//     const { title, author, description, img } = data;
+//     const db = admin.firestore();
+//     const movieRef = db.collection('Movies').doc();
+//     return movieRef.set({ title, author, description, img, id: movieRef.id })
+//         .then(() => ({ id: movieRef.id }))
+//         .catch(error => {
+//             console.error('Error adding movie to database:', error);
+//             throw new functions.https.HttpsError('internal', 'Error adding movie to database');
+//         });
+// });
 
-        // Add the book to the user's list
-        return admin.firestore().collection('users').doc(userId).update({
-            list: admin.firestore.FieldValue.arrayUnion(bookData)
-        });
-    });
-
+// exports.addmovie = functions.https.onCall((data, context) => {
+//     // Get the current user ID
+//     const userId = context.auth.uid;
+//
+//     // Get a reference to the user document
+//     const userRef = admin.firestore().collection("Users").doc(userId);
+//
+//     // Add the movie data to the user's "movies" subcollection
+//     return userRef.collection("movies").add(data)
+//         .then((docRef) => {
+//             console.log("Movie added to user's list with ID:", docRef.id);
+//             return { message: "Movie added successfully" };
+//         })
+//         .catch((error) => {
+//             console.error("Error adding movie to user's list:", error);
+//             throw new functions.https.HttpsError("unknown", error.message);
+//         });
+// });
 // exports.createUser = functions.auth.user().onCreate((user) => {
 //     const userData = {
 //         firstName: request.body.firstName,

@@ -10,6 +10,8 @@ function register() {
     const password1 = document.getElementById("inputPassword1").value;
     const password2 = document.getElementById("inputPassword2").value;
 
+    const displayName = `${firstName} ${lastName}`;
+
     // Validate the user's input
     if (!firstName || !lastName || !email || !password1 || !password2) {
         alert("Please fill in all the fields.");
@@ -32,13 +34,15 @@ function register() {
             const user = userCredential.user;
 
             user.updateProfile({
-                displayName: `${firstName} ${lastName}`
+                displayName: displayName
             }).then(() => {
                 setTimeout(() => {
                     // console.log(user.displayName); // check if the display name was updated
                     document.cookie = 'accessToken=' + user.za;
                     document.cookie = 'uid=' + user.uid;
+
                     window.location.href = '../SearchHome.html';
+
                 }, 1000); // wait for 1 second before accessing the updated user object
             });
 

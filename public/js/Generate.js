@@ -2,15 +2,16 @@ async function GenMovies(genreFilter) {
     const genre = document.getElementById('genreFilter').value;
     const apiKey = '53c1020b3a0e7aeb482d50f68918374e';
     let apiUrl = '';
-    if (genre && genre !== '') {
-        apiUrl = `https://api.themoviedb.org/3/genre/${genreFilter}/movies?api_key=${apiKey}`;
+    if ( genre == '') {
+        apiUrl = `https://api.themoviedb.org/3/movies?api_key=${apiKey}`;
     } else {
-        apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
+        apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genre}`;
     }
     const response = await fetch(apiUrl);
     const data = await response.json();
     const movies = data.results;
 
+    console.log(genre);
     const movieList = document.getElementById("movie-list");
     movieList.innerHTML = "";
 
@@ -34,6 +35,7 @@ async function GenMovies(genreFilter) {
 
         const movieEl = document.createElement("div");
         movieEl.classList.add("rowB");
+
         movieEl.innerHTML = `
       <div class="columnA">
         <img src="${moviePoster}" alt="${movieTitle} poster">
@@ -42,9 +44,19 @@ async function GenMovies(genreFilter) {
         <div class="centered">
           <h3 class="MVtitle">${movieTitle}</h3>
           <div class="des">Description: ${movieOverview}</div>
+          <br>
+          <div class="button-container">
+                <button class="addToMyListButton">Add to List</button>
+          </div>
         </div>
       </div>
     `;
+
+        // const buttonEl = document.createElement("button");
+        // buttonEl.classList.add("addToMyListButton");
+        // buttonEl.innerText = "Add to List";
+        //
+        // movieEl.querySelector(".button-container").appendChild(buttonEl);
 
         movieList.appendChild(movieEl);
         addedMovies.push(movie.id);
@@ -98,6 +110,10 @@ async function GenBooks(subject) {
       <div class="columnB">
           <h3 class="title">${bookTitle} By ${bookAuthor}</h3>
           <div class="des">Description: ${bookDescription}</div>
+          <br>
+          <div class="button-container">
+                <button class="addToMyListButton">Add to List</button>
+          </div>
       </div>
     `;
 

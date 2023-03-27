@@ -1,11 +1,11 @@
+// const firebase = require("firebase");
 const APIURL = "https://api.themoviedb.org/3/discover/movie?api_key=53c1020b3a0e7aeb482d50f68918374e";
 const IMGPATH = "https://image.tmdb.org/t/p/w300";
-const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=53c1020b3a0e7aeb482d50f68918374e&query=";
-
+//
+// const addMovieFunction = firebase.functions().httpsCallable('addMovie');
+//
 
 const main = document.getElementById("content");
-const form = document.getElementById("movieForm");
-const search = document.getElementById("movieName");
 
 // initially get fav movies
 getMovies(APIURL);
@@ -20,6 +20,7 @@ async function getMovies(url) {
 }
 
 function showMovies(movies) {
+
     // clear main
     main.innerHTML = "";
 
@@ -72,14 +73,20 @@ function showMovies(movies) {
         const addButton = buttonEL.querySelector(".addToMyListButton");
         addButton.addEventListener("click", () => {
             // Create a new object with the book data
-            const movieDate = {
+            const movieData = {
                 title: movie.title,
                 author: movie.author,
                 description: movie.description,
                 img: poster_path
             }
 
-            addToList(movieDate);
+            addMovieFunction(movieData)
+                .then(result => {
+                    console.log('Movie added to user\'s list with ID:', result.data.id);
+                })
+                .catch(error => {
+                    console.error('Error adding movie to user\'s list:', error);
+                });
         })
         // col.appendChild(movieEl); // Append movieEl to col
         // rw.appendChild(col); // Append col to rw

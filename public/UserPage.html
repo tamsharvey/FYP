@@ -12,11 +12,15 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"
-            nonce="f30d252b-c13c-49d1-9e03-5cae290255ca"></script>
-    <script defer="" referrerpolicy="origin"
-            src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ4JTIyJTNBMC45NDUyNDc2ODU1MTA5MjQ0JTJDJTIydyUyMiUzQTE5MjAlMkMlMjJoJTIyJTNBMTA4MCUyQyUyMmolMjIlM0E5NzYlMkMlMjJlJTIyJTNBMTY3OSUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRmV0YyUyRnNlYXJjaGYlMkZjb2xvcmxpYi1zZWFyY2gtMTAlMkYlMjIlMkMlMjJyJTIyJTNBJTIyJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQTAlMkMlMjJxJTIyJTNBJTVCJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIwJTIyJTJDJTIyY29uZmlnJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIxJTIyJTJDJTIyVUEtMjM1ODE1NjgtMTMlMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlNUQlN0Q="></script>
-    <script src="./funcs/index.js" defer></script>
+    <script src="js/Delete.js" ></script>
+    <script src="js/logout.js" ></script>
+    <script src="js/displayUser.js" ></script>
+
+<!--    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"-->
+<!--            nonce="f30d252b-c13c-49d1-9e03-5cae290255ca"></script>-->
+<!--    <script defer="" referrerpolicy="origin"-->
+<!--            src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ4JTIyJTNBMC45NDUyNDc2ODU1MTA5MjQ0JTJDJTIydyUyMiUzQTE5MjAlMkMlMjJoJTIyJTNBMTA4MCUyQyUyMmolMjIlM0E5NzYlMkMlMjJlJTIyJTNBMTY3OSUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRmV0YyUyRnNlYXJjaGYlMkZjb2xvcmxpYi1zZWFyY2gtMTAlMkYlMjIlMkMlMjJyJTIyJTNBJTIyJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQTAlMkMlMjJxJTIyJTNBJTVCJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIwJTIyJTJDJTIyY29uZmlnJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIxJTIyJTJDJTIyVUEtMjM1ODE1NjgtMTMlMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlNUQlN0Q="></script>-->
+<!--    <script src="./funcs/index.js" defer></script>-->
 
     <header class="masthead text-center text-white">
         <div class="masthead-content">
@@ -33,16 +37,13 @@
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/SearchHome.html">Movies</a>
+                                    <a class="nav-link" href="/SearchHome.html">Search</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/SearchHome.html">Books</a>
+                                    <a class="nav-link" href="/GenMovies.html">Generate</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/SearchHome.html">Music</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/EditProfile.html">Edit Account</a>
+                                    <a class="nav-link" href="#" onclick="logout()">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -62,64 +63,73 @@
                         <div class="d-flex flex-column align-items-center text-center">
                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
                                  class="rounded-circle" width="150">
-                            <div class="mt-3">
-                                <h4>John Doe</h4>
-                                <p class="text-secondary mb-1">Full Stack Developer</p>
-                                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-4 ed">
+                                <h6 class="mb-0">Name</h6>
                             </div>
+                            <div class="col-sm-8 d-flex align-items-center">
+                                <span class="text-secondary" id="userDisplayName"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-4 ed">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-8 d-flex align-items-center">
+                                <span class="text-secondary" id="userEmail"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="btn-con">
+                            <a href="EditProfile.html" class="btn btn-primary">Edit Account</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Full Name</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                Kenneth Valdez
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Email</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                fip@jukmuh.al
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Phone</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                (239) 816-9029
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Mobile</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                (320) 380-4539
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Address</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
+                                <h6 class="mb-0">Book List</h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Movie List</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="/__/firebase/8.4.2/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="/__/firebase/8.4.2/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="/__/firebase/8.4.2/firebase-auth.js"></script>
+<script src="/__/firebase/8.4.2/firebase-firestore.js"></script>
+
+<!--   Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<!--  <script src="/__/firebase/init.js?useEmulator=true"></script>-->
 </body>
 </html>

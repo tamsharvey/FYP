@@ -95,6 +95,14 @@ select {
     align-items: center;
 }
 
+.columnB {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
 .column {
     flex: none;
     white-space: normal;
@@ -142,6 +150,30 @@ centered {
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+
+.button-container {
+    position: relative;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.addToMyListButton {
+    color: #fff;
+    background-color: #ee5151;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: -150px;
+}
+
+@media (min-width: 768px) {
+    .columnA columnB {
+        width: 400px; /* set a fixed width for screens larger than 768px */
+    }
 }
 
 
