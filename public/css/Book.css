@@ -22,8 +22,8 @@
   margin: 1rem;
   justify-content: center;
   align-content: center;
-  width: 215px;
-  height: 415px;
+  width: 225px;
+  height: 465px;
 }
 
 .book img {
@@ -46,7 +46,7 @@
   overflow: hidden;
 }
 
-.book-info h4 {
+.book-info h3 {
   margin: 0;
   font-size: 14px;
   text-align: center;
@@ -110,14 +110,33 @@
   text-align: center;
 }
 
-.addToListButton {
-  color: #fff !important;
-  background-color: #ee5151 !important;
+.addToMyListButton {
+  color: #fff;
+  background-color: #ee5151;
   border: none;
   padding: 12px 24px;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 40px;
+}
+
+.book-info span {
+  background-color: #efdce0;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 0.25rem 0.8rem;
+  margin-bottom: 15px;
+
+}
+.book-info span.green {
+  color: rgb(39, 189, 39);
+}
+
+.book-info span.orange {
+  color: #e07b00;
+}
+
+.book-info span.red {
+  color: rgb(189, 42, 42);
 }
 
 

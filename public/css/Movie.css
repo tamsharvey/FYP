@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #efdce0 !important;
+  background-color: #fcf4f4 !important;
   font-family: "Poppins", sans-serif;
   margin: 0;
 }
@@ -51,8 +51,8 @@ h1{
   margin: 1rem;
   justify-content: center;
   align-content: center;
-  width: 215px;
-  height: 415px;
+  width: 225px;
+  height: 475px;
 }
 
 .movie img {
@@ -69,7 +69,7 @@ h1{
   justify-content: center;
   padding: 0.5rem 1rem 1rem;
   letter-spacing: 0.5px;
-  height: 60px
+  height: 60px;
 }
 
 .movie-info h3 {
@@ -167,4 +167,6 @@ h1{
   width: 100%;
   height: auto;
 }
+
+
 

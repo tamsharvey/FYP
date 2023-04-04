@@ -24,6 +24,7 @@ async function GenMovies(genreFilter) {
         const movieTitle = movie.title;
         const moviePoster = movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : "https://via.placeholder.com/500x750?text=No+poster+available";
         const movieOverview = movie.overview;
+        const voteAverage = movie.vote_average;
 
         if (!movieTitle || !moviePoster || !movieOverview) {
             continue;
@@ -43,6 +44,7 @@ async function GenMovies(genreFilter) {
       <div class="columnB">
         <div class="centered">
           <h3 class="MVtitle">${movieTitle}</h3>
+          <span class="${getClassByRate(voteAverage)} MVtitle"> Rating: ${voteAverage}</span>
           <div class="des">Description: ${movieOverview}</div>
           <br>
           <div class="button-container">
@@ -61,6 +63,17 @@ async function GenMovies(genreFilter) {
         movieList.appendChild(movieEl);
         addedMovies.push(movie.id);
     }
+}
+
+function getClassByRate(vote) {
+    if (vote >= 8) {
+        return "green";
+    } else if (vote >= 5) {
+        return "orange";
+    } else {
+        return "red";
+    }
+
 }
 
 
@@ -96,6 +109,7 @@ async function GenBooks(subject) {
         const bookCover = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/128x196?text=No+cover+available";
         const bookAuthor = book.volumeInfo.authors ? book.volumeInfo.authors[0] : "Unknown";
         const bookDescription = book.volumeInfo.description ? book.volumeInfo.description : "No description available.";
+        const rating = book.volumeInfo.rating;
 
         if (bookTitle.toLowerCase().includes("subject directory") || bookTitle.toLowerCase().includes("manual") || bookTitle.toLowerCase().includes("subject guide") || bookAuthor.toLowerCase().includes("united states. bureau") || bookAuthor.toLowerCase().includes("library of congress")) {
             continue; // skip this book and try again
@@ -109,6 +123,7 @@ async function GenBooks(subject) {
       </div> 
       <div class="columnB">
           <h3 class="title">${bookTitle} By ${bookAuthor}</h3>
+          <span class="${getBookRating(book.id)} title">Rating: ${rating}</span>
           <div class="des">Description: ${bookDescription}</div>
           <br>
           <div class="button-container">
@@ -120,6 +135,20 @@ async function GenBooks(subject) {
         bookList.appendChild(bookEL);
         addedBooks.push(book.id);
     }
+}
+
+function getBookRating(id) {
+    return fetch(`https://www.googleapis.com/books/v1/volumes/${id}`, {
+        method: 'get'
+    })
+        .then(response => { return response.json(); })
+        .then(data => {
+            const rating = data.volumeInfo.averageRating || 'N/A';
+            return rating;
+        })
+        .catch(error => {
+            console.log(error);
+        });
 }
 
 

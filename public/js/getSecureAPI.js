@@ -25,7 +25,7 @@ function getSecureAPI(){
 					if(data[i].entertainment===entertainment){
 						sHTML += "<div class='col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5'>";
 						sHTML += "<figure class='effect-ming tm-video-item'>";
-						sHTML += "<img src='img/personB.png' alt='Image' class='img-fluid'>";
+						sHTML += "<assets src='assets/personB.png' alt='Image' class='assets-fluid'>";
 						sHTML += "<figcaption class='d-flex align-items-center justify-content-center'>";
 						sHTML += "<h2>"+ data[i].name +"</h2>";
 						sHTML += "<a href='act-detail.html?uid=" +data[i].uid + "'></a>";
