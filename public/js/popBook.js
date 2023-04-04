@@ -60,12 +60,13 @@ async function showBooks(books) {
                     </div> 
                     <div class="columnB">
                         <div class="book-info">
-                        <h3 class="title">${bookInfo.title} <br> By ${bookInfo.author}</h3>
-                        <span class="${getBookRating(id)}">${rating}</span>
-                    </div>
-                    <div class="des">
-                        <h3>Description:</h3>
-                        ${bookInfo.description}
+                            <h3 class="title">${bookInfo.title} <br> By ${bookInfo.author}</h3>
+                            <span class="${getBookRating(id)}">${rating}</span>
+                        </div>
+                        <div class="des">
+                            <h3>Description:</h3>
+                            ${bookInfo.description}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,6 +103,16 @@ function getBookRating(id) {
         .catch(error => {
             console.log(error);
         });
+}
+
+function getClassByRate(vote) {
+    if (vote >= 8) {
+        return "green";
+    } else if (vote >= 5) {
+        return "orange";
+    } else {
+        return "red";
+    }
 }
 
 function getID(isbn) {

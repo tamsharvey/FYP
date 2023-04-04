@@ -181,5 +181,4 @@ function getClassByRate(vote) {
     } else {
         return "red";
     }
-
 }
