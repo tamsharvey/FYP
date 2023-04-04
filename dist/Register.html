@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	 <link href="/bootstrap.min.108cc16f.css" rel="stylesheet">
+	<link href="/SignIn_RegisterStyles.209e0f28.css" rel="stylesheet">
+
+</head>
+    <body>
+	    <header class="masthead text-center text-white">
+        <div class="masthead-content">
+          <div class="container">
+             <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+              <div class="container">
+                <a class="navbar-brand" href="#">MediaGen</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/index.html"> Home</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+			</div>
+		</div>
+
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
+              <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h2 class="masthead-heading mb-0"> Create an Account </h2>
+                  <h5 class="card-title text-center"></h5>
+
+                    <div class="form-label-group">
+                        <input type="name" id="firstName" class="form-control" placeholder="First Name" required="" autofocus="">
+                        <label for="firstName">First Name</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="name" id="lastName" class="form-control" placeholder="Last Name" required="" autofocus="">
+                        <label for="lastName">Last Name</label>
+                    </div>
+
+                    <div class="form-label-group">
+					 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                      <label for="inputEmail">Email address</label>
+                    </div>
+
+                    <div class="form-label-group">
+					<input type="password" id="inputPassword1" class="form-control" placeholder="Password" required="">
+                      <label for="inputPassword1">Password</label>
+					</div>
+
+                  <div class="form-label-group">
+					<input type="password" id="inputPassword2" class="form-control" placeholder="Re-Enter Password" required="">
+                      <label for="inputPassword2">Re-Enter Password</label>
+					</div>
+
+                    <button onclick="register()" class="btn btn-lg btn-primary btn-block text-uppercase">Create an Account</button>
+
+                    <hr class="my-4">
+                    <h3> Have an account?</h3>
+                    <a href="/Login.html" rel="Login">
+                    <a href="/Login.html"> Sign In </a>
+
+
+                </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </header>
+
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="/firebase-app.73d98828.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="/firebase-analytics.22a982e3.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="/firebase-auth.0891b46b.js"></script>
+  <script src="/firebase-firestore.b062eb47.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script src="/init.c0d1168e.js?useEmulator=true"></script>
+
+        <script src="/firebase-config.6beaa9e7.js"></script>
+        <script src="/bbacde1740d98e051757e52330005a84.js"></script>
+        <script src="/42f69825340f0b5fa628d80900a46daa.js"></script>
+
+</body>
+</html>

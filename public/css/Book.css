@@ -22,8 +22,8 @@
   margin: 1rem;
   justify-content: center;
   align-content: center;
-  width: 215px;
-  height: 415px;
+  width: 225px;
+  height: 465px;
 }
 
 .book img {
@@ -46,7 +46,7 @@
   overflow: hidden;
 }
 
-.book-info h4 {
+.book-info h3 {
   margin: 0;
   font-size: 14px;
   text-align: center;
@@ -55,16 +55,31 @@
 
 .book-info span {
   background-color: #efdce0;
-  border-radius: 2px;
+  border-radius: 3px;
+  font-weight: bold;
   padding: 0.25rem 0.8rem;
+  margin-bottom: 15px;
+  color: black;
 }
+
+.book-info span.green {
+  color: rgb(39, 189, 39);
+}
+
+.book-info span.orange {
+  color: #e07b00;
+}
+
+.book-info span.red {
+  color: rgb(189, 42, 42);
+}
+
+/*.des {*/
+/*  color: black;*/
+/*  font-weight: bold;*/
+/*}*/
 
 .des {
-  color: black;
-  font-weight: bold;
-}
-
-.book-description {
   background-color: #fff;
   color:black;
   padding: 1rem;
@@ -82,7 +97,7 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.book:hover .book-description {
+.book:hover .des {
   transform: translateY(0);
   bottom: 0;
 }
@@ -110,14 +125,21 @@
   text-align: center;
 }
 
-.addToListButton {
-  color: #fff !important;
-  background-color: #ee5151 !important;
+.addToMyListButton {
+  color: #fff;
+  background-color: #ee5151;
   border: none;
   padding: 12px 24px;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 40px;
+}
+.columnB {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
 }
 
 

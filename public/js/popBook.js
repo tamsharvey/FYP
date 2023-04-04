@@ -25,9 +25,12 @@ async function showBooks(books) {
     for (const book of books) {
         const bookInfo = book.book_details[0];
         const isbn = book.isbns[0].isbn10;
+        const reviews = book.reviews;
 
         try {
+
             const id = await getID(isbn);
+            const rating = await getBookRating(id);
 
             const columnEL = document.createElement("div");
             columnEL.classList.add("column");
@@ -38,45 +41,47 @@ async function showBooks(books) {
 
             columnEL.appendChild(bookEL);
 
-            const btnEL = document.createElement("div");
-            btnEL.classList.add("button-container");
-
-            const addToListButton = document.createElement("button");
-            addToListButton.classList.add("addToListButton");
-            addToListButton.textContent = "Add to List";
-
-            btnEL.appendChild(addToListButton);
-            columnEL.appendChild(bookEL);
-            columnEL.appendChild(btnEL);
+            const bookData = {
+                title: bookInfo.title, // Use 'title' instead of 'movie.title'
+                author: bookInfo.author,
+                description: bookInfo.description,
+                img: img,
+                rating: rating
+            };
 
             bookEL.innerHTML = `
-              <div class="rowB">
-                <div class="columnB">
-                  <img src="${img}">
-                </div> 
-                <div class="columnB">
-                  <h3 class="title">${bookInfo.title} <br> By ${bookInfo.author}</h3>
-                  <div class="book-description">
-                    <div class="des">Description: </div>
-                    ${bookInfo.description}
-                  </div>
+            <div>
+                <div class="rowM">
+                    <button class="addToMyListButton">Add To List</button>
                 </div>
-              </div>
+                <div class="rowB">
+                    <div class="columnB">
+                        <img src="${img}">
+                    </div> 
+                    <div class="columnB">
+                        <div class="book-info">
+                            <h3 class="title">${bookInfo.title} <br> By ${bookInfo.author}</h3>
+                            <span class="${getBookRating(id)}">${rating}</span>
+                        </div>
+                        <div class="des">
+                            <h3>Description:</h3>
+                            ${bookInfo.description}
+                        </div>
+                    </div>
+                </div>
+            </div>
             `;
 
-            // const addButton = bookEL.querySelector(".addToMyListButton");
-            // addButton.addEventListener("click", () => {
-            //     // Create a new object with the book data
-            //     const bookData = {
-            //         title: bookInfo.title,
-            //         author: bookInfo.author,
-            //         description: bookInfo.description,
-            //         img: img
-            //     };
-            //
-            //     // Add the book to the user's list
-            //     add(bookData);
-            // });
+            // Add an event listener for the button using async
+            const button = bookEL.querySelector(".addToMyListButton");
+            button.addEventListener("click", async () => {
+                try {
+                    await addDataToFirestore(bookData);
+                    console.log('Data added successfully');
+                } catch (error) {
+                    console.error('Error adding data:', error);
+                }
+            });
 
             row.appendChild(columnEL);
         } catch (error) {
@@ -84,6 +89,30 @@ async function showBooks(books) {
         }
     }
     bMain.appendChild(row);
+}
+
+function getBookRating(id) {
+    return fetch(`https://www.googleapis.com/books/v1/volumes/${id}`, {
+        method: 'get'
+    })
+        .then(response => { return response.json(); })
+        .then(data => {
+            const rating = data.volumeInfo.averageRating || 'N/A';
+            return rating;
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+function getClassByRate(vote) {
+    if (vote >= 8) {
+        return "green";
+    } else if (vote >= 5) {
+        return "orange";
+    } else {
+        return "red";
+    }
 }
 
 function getID(isbn) {
@@ -97,5 +126,21 @@ function getID(isbn) {
         })
         .catch(error => {
             console.log(error);
+        });
+}
+
+
+window.addDataToFirestore = function(bookData) {
+    const db = firebase.firestore();
+    const userMoviesRef = db.collection("Movies");
+
+    return userMoviesRef.add(bookData)
+        .then(docRef => {
+            console.log("Movie added with ID: ", docRef.id);
+            return { data: { id: docRef.id } };
+        })
+        .catch(error => {
+            console.error("Error adding movie: ", error);
+            throw error;
         });
 }
